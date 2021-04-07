@@ -12,8 +12,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
 
         button.setOnClickListener {
-            val cityDialogFragment =
-                CityDialogFragment()
+            val cityDialogFragment = CityDialogFragment()
             cityDialogFragment.show(supportFragmentManager, "dialog")
         }
 
