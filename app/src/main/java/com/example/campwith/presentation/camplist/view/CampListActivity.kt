@@ -13,8 +13,7 @@ import kotlinx.android.synthetic.main.activity_camp_list.*
 class CampListActivity : BaseActivity<ActivityCampListBinding>(R.layout.activity_camp_list) {
 
     private lateinit var campListViewModel: CampListViewModel
-    private val campListAdapter =
-        CampListAdapter()
+    private val campListAdapter = CampListAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
