@@ -19,7 +19,9 @@ class CampListActivity : BaseActivity<ActivityCampListBinding>(R.layout.activity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         NaverMapSdk.getInstance(this).client =
-            NaverMapSdk.NaverCloudPlatformClient("클라이언트 아이디")
+            NaverMapSdk.NaverCloudPlatformClient("acdbyskku1")
+
+        tv_do_name.text = intent.getStringExtra("doName")
 
         campListViewModel = ViewModelProvider(this).get(CampListViewModel::class.java)
         campListViewModel.getCampList()
