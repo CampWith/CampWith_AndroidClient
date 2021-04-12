@@ -9,6 +9,5 @@ data class Item(
     val doNm: String,
     val facltNm: String,
     val mapX: Double,
-    val mapY: Double,
-    val tel: String
+    val mapY: Double
 ): Parcelable
