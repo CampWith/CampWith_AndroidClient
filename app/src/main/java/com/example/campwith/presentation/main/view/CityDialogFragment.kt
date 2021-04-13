@@ -20,9 +20,9 @@ class CityDialogFragment : BaseDialogFragment<FragmentCityDialogBinding>(R.layou
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_city_dialog, container, false)
-        view.findViewById<Button>(R.id.button2).setOnClickListener {
+        view.findViewById<Button>(R.id.btn_seoul).setOnClickListener {
             val intent = Intent(activity, CampListActivity::class.java)
-            intent.putExtra("doName",button2.text)
+            intent.putExtra("doName",btn_seoul.text)
             startActivity(intent)
         }
         return view

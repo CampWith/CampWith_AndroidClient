@@ -11,7 +11,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        button.setOnClickListener {
+        ll_container.setOnClickListener {
             val cityDialogFragment = CityDialogFragment()
             cityDialogFragment.show(supportFragmentManager, "dialog")
         }
