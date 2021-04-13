@@ -7,12 +7,14 @@
             type="com.example.campwith.data.Item" />
     </data>
 <androidx.cardview.widget.CardView
+    android:id="@+id/cv_camp_item"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="150dp"
     app:cardCornerRadius="10dp"
     android:layout_margin="5dp"
-    android:foregroundGravity="center"
-    android:id="@+id/cv_camp_item">
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,29 +23,41 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/ic_baseline_image_24" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/ic_baseline_image_24"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/medium_basic_14sp"
+                android:textColor="@color/dark_gray"
+                android:text="캠핑유형" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:text="@{ItemCamp.facltNm}"
-                android:textColor="#000000" />
+                style="@style/medium_basic_18sp"
+                android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{ItemCamp.addr1}"
-                android:textColor="#000000" />
+                style="@style/medium_basic_16sp"
+                android:textColor="@color/dark_gray" />
 
         </LinearLayout>
     </LinearLayout>

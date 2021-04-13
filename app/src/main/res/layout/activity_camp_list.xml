@@ -4,18 +4,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/tv_do_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="도 이름"
+            style="@style/bold_basic"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/rv_camp_list"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:background="@color/white_gray_2"/>
     </LinearLayout>
 </layout>

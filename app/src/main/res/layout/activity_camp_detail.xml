@@ -9,17 +9,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@color/white">
 
         <TextView
-            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{ItemCamp.facltNm}"
-            android:gravity="center"/>
+            android:gravity="center"
+            style="@style/bold_basic"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp" />
 
         <ImageView
-            android:id="@+id/imageView2"
             android:layout_width="200dp"
             android:layout_height="200dp"
             app:srcCompat="@drawable/ic_baseline_image_24" />
@@ -27,17 +30,22 @@
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tl_tabs">
+            android:id="@+id/tl_tabs"
+            android:background="@color/white">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="리뷰" />
+                android:text="리뷰"
+                android:background="@color/white"
+                style="@style/medium_basic_18sp" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="지도" />
+                android:text="지도"
+                android:background="@color/white"
+                style="@style/medium_basic_18sp"/>
         </com.google.android.material.tabs.TabLayout>
 
         <FrameLayout
