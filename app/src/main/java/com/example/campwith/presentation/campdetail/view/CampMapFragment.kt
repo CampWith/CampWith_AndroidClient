@@ -55,7 +55,7 @@ class CampMapFragment : Fragment(), OnMapReadyCallback {
 
     @UiThread
     override fun onMapReady(naverMap: NaverMap) {
-        val cameraPosition = CameraPosition(LatLng(campItem!!.mapY, campItem!!.mapX), 27.0)
+        val cameraPosition = CameraPosition(LatLng(campItem!!.mapY, campItem!!.mapX), 20.0)
         naverMap.cameraPosition = cameraPosition
         val marker = Marker()
         marker.icon = OverlayImage.fromResource(R.drawable.ic_baseline_place_24)
