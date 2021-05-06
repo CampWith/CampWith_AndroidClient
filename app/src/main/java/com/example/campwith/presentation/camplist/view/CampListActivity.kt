@@ -21,16 +21,19 @@ class CampListActivity : BaseActivity<ActivityCampListBinding>(R.layout.activity
         NaverMapSdk.getInstance(this).client =
             NaverMapSdk.NaverCloudPlatformClient("acdbyskku1")
 
-        tv_do_name.text = intent.getStringExtra("doName")
+        val region = intent.getStringExtra("doName")
+        tv_do_name.text = region
 
         campListViewModel = ViewModelProvider(this).get(CampListViewModel::class.java)
-        campListViewModel.getCampList()
+        if (region != null) {
+            campListViewModel.getCampList(region)
+        }
 
         rv_camp_list.adapter = campListAdapter
 
         campListViewModel.campListLiveData.observe(this,
             Observer {
-                campListAdapter.addAll(it.item)
+                campListAdapter.addAll(it)
         })
     }
 }
