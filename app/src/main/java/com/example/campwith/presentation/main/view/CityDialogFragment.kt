@@ -10,7 +10,6 @@ import com.example.campwith.R
 import com.example.campwith.databinding.FragmentCityDialogBinding
 import com.example.campwith.presentation.base.BaseDialogFragment
 import com.example.campwith.presentation.camplist.view.CampListActivity
-import kotlinx.android.synthetic.main.fragment_city_dialog.*
 
 class CityDialogFragment : BaseDialogFragment<FragmentCityDialogBinding>(R.layout.fragment_city_dialog) {
 
@@ -20,10 +19,15 @@ class CityDialogFragment : BaseDialogFragment<FragmentCityDialogBinding>(R.layou
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_city_dialog, container, false)
-        view.findViewById<Button>(R.id.btn_seoul).setOnClickListener {
-            val intent = Intent(activity, CampListActivity::class.java)
-            intent.putExtra("doName",btn_seoul.text)
-            startActivity(intent)
+        for(i in 1..8){
+            val resName="btn_region"
+            val resId = resources.getIdentifier(resName+i,"id", activity?.packageName)
+            val btn = view.findViewById<Button>(resId)
+            btn.setOnClickListener {
+                val intent = Intent(activity, CampListActivity::class.java)
+                intent.putExtra("doName", btn.text)
+                startActivity(intent)
+            }
         }
         return view
     }
