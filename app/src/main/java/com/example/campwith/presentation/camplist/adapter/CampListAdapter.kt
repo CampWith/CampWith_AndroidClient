@@ -6,24 +6,29 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.campwith.R
-import com.example.campwith.data.Item
+import com.example.campwith.data.camp.CampItem
+import com.example.campwith.data.camp.CampResponse
 import com.example.campwith.databinding.ItemCampBinding
 import com.example.campwith.presentation.campdetail.view.CampDetailActivity
 
 class CampListAdapter(val context: Context) : RecyclerView.Adapter<CampListAdapter.Holder>() {
 
-    private var campList = mutableListOf<Item>()
+    private var campList = CampResponse()
 
-    fun addAll(newCampList: List<Item>){
+    fun addAll(newCampList: CampResponse) {
         campList.clear()
         campList.addAll(newCampList)
         notifyDataSetChanged()
     }
 
     inner class Holder(private val binding: ItemCampBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(campItem: Item){
+        fun bind(campItem: CampItem) {
             binding.itemCamp = campItem
+            Glide.with(itemView)
+                .load(campItem.firstImageUrl)
+                .into(binding.ivCampItem)
             binding.cvCampItem.setOnClickListener {
                 val intent = Intent(context, CampDetailActivity::class.java)
                 intent.putExtra("campitem", campItem)
