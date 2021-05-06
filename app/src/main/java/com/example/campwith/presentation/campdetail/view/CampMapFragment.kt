@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.UiThread
 import com.example.campwith.R
-import com.example.campwith.data.Item
+import com.example.campwith.data.camp.CampItem
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapFragment
@@ -19,7 +19,7 @@ import com.naver.maps.map.overlay.OverlayImage
 private const val ARG_PARAM = "campItem"
 
 class CampMapFragment : Fragment(), OnMapReadyCallback {
-    private var campItem: Item? = null
+    private var campItem: CampItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +45,7 @@ class CampMapFragment : Fragment(), OnMapReadyCallback {
 
     companion object {
         @JvmStatic
-        fun newInstance(campItem: Item) =
+        fun newInstance(campItem: CampItem) =
             CampMapFragment().apply {
                 arguments = Bundle().apply {
                     putParcelable(ARG_PARAM, campItem)

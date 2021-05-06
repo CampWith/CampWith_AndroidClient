@@ -1,18 +1,14 @@
 package com.example.campwith.remote
 
-import com.example.campwith.data.CampResponse
+import com.example.campwith.data.camp.CampResponse
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface Api {
-    @GET("basedList")
+    @GET("api/campsites/list/{doNm}")
     fun getCamp(
-        @Query("ServiceKey") serviceKey: String,
-        @Query("MobileOS") mobileOS: String,
-        @Query("MobileApp") mobileApp: String,
-        @Query("_type") type: String,
-        @Query("pageNo") pageNo: Int,
-        @Query("numOfRows") numOfRows: Int
+        @Path("doNm") serviceKey: String
     ) : Single<CampResponse>
 }

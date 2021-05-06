@@ -1,10 +1,10 @@
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="ItemCamp"
-            type="com.example.campwith.data.Item" />
+            type="com.example.campwith.data.camp.CampItem" />
     </data>
 <androidx.cardview.widget.CardView
     android:id="@+id/cv_camp_item"
@@ -22,7 +22,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/iv_camp_item"
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:srcCompat="@drawable/ic_baseline_image_24"

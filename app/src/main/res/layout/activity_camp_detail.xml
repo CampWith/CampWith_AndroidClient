@@ -3,7 +3,7 @@
     <data>
         <variable
             name="ItemCamp"
-            type="com.example.campwith.data.Item" />
+            type="com.example.campwith.data.camp.CampItem" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
