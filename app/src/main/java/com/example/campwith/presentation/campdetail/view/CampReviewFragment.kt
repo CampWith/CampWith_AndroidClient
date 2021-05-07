@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.campwith.R
+import com.example.campwith.data.review.Item
+import com.example.campwith.presentation.campdetail.adapter.CampReviewAdapter
+import kotlinx.android.synthetic.main.fragment_camp_review.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +24,7 @@ class CampReviewFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private val campReviewAdapter = CampReviewAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +39,20 @@ class CampReviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_camp_review, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        rv_camp_review_list.adapter = campReviewAdapter
+        campReviewAdapter.addAll(
+            mutableListOf(
+                Item("김뫄뫄", "2020.12.12", "★★★★★", "너무좋아요!"),
+                Item("박뫄뫄", "2020.12.24", "★", "최악임")
+            )
+        )
     }
 
     companion object {
