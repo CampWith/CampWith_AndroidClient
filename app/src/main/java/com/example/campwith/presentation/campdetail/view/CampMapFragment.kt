@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.UiThread
 import com.example.campwith.R
-import com.example.campwith.data.camp.CampItem
+import com.example.campwith.data.camp.CampDetailResponse
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapFragment
@@ -19,13 +19,10 @@ import com.naver.maps.map.overlay.OverlayImage
 private const val ARG_PARAM = "campItem"
 
 class CampMapFragment : Fragment(), OnMapReadyCallback {
-    private var campItem: CampItem? = null
+    private var campItem: CampDetailResponse? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            campItem = it.getParcelable(ARG_PARAM)
-        }
 
         val fm = childFragmentManager
         val mapFragment = fm.findFragmentById(R.id.fragment_map) as MapFragment?
@@ -39,18 +36,12 @@ class CampMapFragment : Fragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        arguments?.let {
+            campItem = it.getParcelable(ARG_PARAM)
+        }
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_camp_map, container, false)
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(campItem: CampItem) =
-            CampMapFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(ARG_PARAM, campItem)
-                }
-            }
     }
 
     @UiThread
