@@ -31,7 +31,7 @@ class CampListAdapter(val context: Context) : RecyclerView.Adapter<CampListAdapt
                 .into(binding.ivCampItem)
             binding.cvCampItem.setOnClickListener {
                 val intent = Intent(context, CampDetailActivity::class.java)
-                intent.putExtra("campitem", campItem)
+                intent.putExtra("id", campItem._id)
                 context.startActivity(intent)
             }
         }
