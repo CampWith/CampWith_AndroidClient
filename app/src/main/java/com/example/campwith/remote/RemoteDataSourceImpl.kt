@@ -6,4 +6,8 @@ class RemoteDataSourceImpl : RemoteDataSource {
     override fun getCamp(
         doNm: String
     ) = api.getCamp(doNm)
+
+    override fun getCampDetail(
+        id: String
+    ) = api.getCampDetail(id)
 }
