@@ -3,7 +3,7 @@
     <data>
         <variable
             name="ItemCamp"
-            type="com.example.campwith.data.camp.CampItem" />
+            type="com.example.campwith.data.camp.CampDetailResponse" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,9 +23,20 @@
             android:layout_marginTop="15dp" />
 
         <ImageView
+            android:id="@+id/iv_camp_detail"
             android:layout_width="200dp"
             android:layout_height="200dp"
             app:srcCompat="@drawable/ic_baseline_image_24" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ItemCamp.tel}"
+            android:gravity="center"
+            style="@style/bold_basic"
+            android:textSize="15dp"
+            android:textColor="@color/black" />
 
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
