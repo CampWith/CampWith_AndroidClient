@@ -12,10 +12,12 @@ import com.example.campwith.presentation.base.BaseActivity
 import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_camp_detail.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CampDetailActivity : BaseActivity<ActivityCampDetailBinding>(R.layout.activity_camp_detail) {
+class CampDetailActivity :
+    BaseActivity<ActivityCampDetailBinding, CampDetailViewModel>(R.layout.activity_camp_detail) {
 
-    private lateinit var campDetailViewModel: CampDetailViewModel
+    override val viewModel: CampDetailViewModel by viewModel()
     lateinit var id: String
     lateinit var campItem: CampDetailResponse
     val campReviewFragment = CampReviewFragment()
@@ -26,9 +28,9 @@ class CampDetailActivity : BaseActivity<ActivityCampDetailBinding>(R.layout.acti
 
         id = intent.getStringExtra("id").toString()
 
-        campDetailViewModel = ViewModelProvider(this).get(CampDetailViewModel::class.java)
-        campDetailViewModel.getCampDetail(id)
-        campDetailViewModel.campDetailLiveData.observe(this,
+        viewModel.getCampDetail(id)
+        viewModel.campDetailLiveData.observe(
+            this,
             Observer {
                 campItem = it
                 binding.itemCamp = campItem
