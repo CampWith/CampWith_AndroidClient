@@ -10,7 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 abstract class BaseActivity<DB : ViewDataBinding, VM : BaseViewModel>
     (@LayoutRes private val layoutResId: Int) : AppCompatActivity() {
     protected lateinit var binding: DB
-    abstract val viewModel: VM
+    protected abstract val viewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
