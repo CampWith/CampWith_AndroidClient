@@ -16,7 +16,6 @@ abstract class BaseFragment<B: ViewDataBinding, VM: BaseViewModel>
 {
     protected lateinit var binding: B
     protected abstract val viewModel: VM
-    protected val compositeDisposable = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,10 +29,5 @@ abstract class BaseFragment<B: ViewDataBinding, VM: BaseViewModel>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
-    }
-
-    override fun onDestroy() {
-        compositeDisposable.clear()
-        super.onDestroy()
     }
 }
