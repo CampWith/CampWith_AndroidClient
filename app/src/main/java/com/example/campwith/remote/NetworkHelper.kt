@@ -22,7 +22,7 @@ object NetworkHelper {
     private val gson = GsonBuilder().setLenient().create()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://54.180.81.160:8080/")
+        .baseUrl("http://15.165.203.28:8080/")
         .client(okHttpClent)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
         .addConverterFactory(GsonConverterFactory.create(gson))
