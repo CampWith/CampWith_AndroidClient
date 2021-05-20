@@ -11,5 +11,6 @@ data class CampCarItem(
     val _id: String,
     val price: String,
     val title: String,
-    val url: String
+    val url: String,
+    val image: String
 ) : Parcelable

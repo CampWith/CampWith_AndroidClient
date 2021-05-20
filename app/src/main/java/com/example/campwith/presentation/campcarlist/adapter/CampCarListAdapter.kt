@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.campwith.R
 import com.example.campwith.data.camp.CampCarResponse
 import com.example.campwith.data.camp.CampCarItem
@@ -24,6 +25,9 @@ class CampCarListAdapter(val context: Context) : RecyclerView.Adapter<CampCarLis
         RecyclerView.ViewHolder(binding.root) {
         fun bind(campCarItem: CampCarItem) {
             binding.itemCampCar = campCarItem
+            Glide.with(itemView)
+                .load(campCarItem.image)
+                .into(binding.ivCampCarItem)
         }
     }
 
