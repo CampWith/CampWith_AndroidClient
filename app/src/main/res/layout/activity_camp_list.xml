@@ -14,15 +14,20 @@
             android:gravity="center"
             android:text="도 이름"
             style="@style/bold_basic"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textColor="@color/black"
-            android:layout_marginTop="15dp"/>
+            android:layout_margin="13dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white_gray" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/rv_camp_list"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:background="@color/white_gray_2"/>
+            android:background="@color/white_gray_2" />
     </LinearLayout>
 </layout>
