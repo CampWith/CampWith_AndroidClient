@@ -15,7 +15,6 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".presentation.camplist.view.CampListActivity"></activity>
         <activity android:name=".presentation.campdetail.view.CampDetailActivity"></activity>
-        <activity android:name=".presentation.campcarlist.view.CampCarListActivity" />
         <activity android:name=".presentation.main.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

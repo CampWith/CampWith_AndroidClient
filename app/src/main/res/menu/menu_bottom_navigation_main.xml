@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/main_camp"
+        android:icon="@drawable/ic_camping_tent"
+        android:title="캠핑장"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/main_camp_car"
+        android:icon="@drawable/ic_car"
+        android:title="캠핑카"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/main_camp_tip"
+        android:icon="@drawable/ic_lightbulb"
+        android:title="캠핑팁"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/main_mypage"
+        android:icon="@drawable/ic_user"
+        android:title="마이페이지"
+        app:showAsAction="always" />
+</menu>

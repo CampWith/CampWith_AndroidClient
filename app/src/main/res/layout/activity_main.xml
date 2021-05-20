@@ -1,132 +1,29 @@
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".presentation.main.MainActivity">
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_navigation_main"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/logo"
-                android:layout_marginTop="140dp"
-                android:layout_gravity="center"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/ll_container"
-                android:layout_gravity="center">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_baseline_place_24" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="위치를 설정해 주세요"
-                    style="@style/medium_basic"
-                    android:textSize="20dp"
-                    android:textColor="@color/dark_gray"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="50dp">
-
-                <Button
-                    android:id="@+id/btn_outocamping"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="오토캠핑"
-                    style="@style/medium_basic_18sp"
-                    android:textColor="@color/black"
-                    android:background="@color/white"/>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/dark_gray"/>
-
-                <Button
-                    android:id="@+id/btn_glamping"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="글램핑"
-                    style="@style/medium_basic_18sp"
-                    android:textColor="@color/black"
-                    android:background="@color/white"/>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/dark_gray"/>
-
-                <Button
-                    android:id="@+id/btn_caravan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="카라반"
-                    style="@style/medium_basic_18sp"
-                    android:textColor="@color/black"
-                    android:background="@color/white"/>
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_campingcar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="캠핑카 둘러보기"
-                style="@style/medium_basic_18sp"
-                android:textColor="@color/black"
-                android:background="@color/white"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
-
-            <Button
-                android:id="@+id/btn_campingtip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="캠핑팁 알아보기"
-                style="@style/medium_basic_18sp"
-                android:textColor="@color/black"
-                android:background="@color/white"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
-
-        </LinearLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:clickable="true"
-            android:src="@drawable/ic_baseline_search_24"
-            android:backgroundTint="@color/white"
-            app:layout_anchor="@id/btn_campingtip"
-            app:layout_anchorGravity="bottom|right|end"
-            android:layout_marginRight="10dp"
-            android:layout_gravity="center"/>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="bottom"
+            app:itemTextColor="@color/black"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/menu_bottom_navigation_main"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

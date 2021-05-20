@@ -11,11 +11,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="캠핑카 대여"
+            android:text="캠핑카"
             style="@style/bold_basic"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textColor="@color/black"
-            android:layout_marginTop="15dp" />
+            android:layout_margin="13dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white_gray" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rc_camp_car_list"
