@@ -7,8 +7,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.campwith.R
-import com.example.campwith.data.camp.CampCarResponse
-import com.example.campwith.data.camp.CampCarItem
+import com.example.campwith.data.camp.response.CampCarResponse
+import com.example.campwith.data.camp.response.CampCarItem
 import com.example.campwith.databinding.ItemCampCarBinding
 
 class CampCarListAdapter(val context: Context) : RecyclerView.Adapter<CampCarListAdapter.Holder>() {

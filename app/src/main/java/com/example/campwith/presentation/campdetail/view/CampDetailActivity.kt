@@ -3,10 +3,9 @@ package com.example.campwith.presentation.campdetail.view
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.campwith.R
-import com.example.campwith.data.camp.CampDetailResponse
+import com.example.campwith.data.camp.response.CampDetailResponse
 import com.example.campwith.databinding.ActivityCampDetailBinding
 import com.example.campwith.presentation.base.BaseActivity
 import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel

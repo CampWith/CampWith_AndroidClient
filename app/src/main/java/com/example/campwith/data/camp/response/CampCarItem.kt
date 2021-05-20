@@ -1,4 +1,4 @@
-package com.example.campwith.data.camp
+package com.example.campwith.data.camp.response
 
 import android.annotation.SuppressLint
 import kotlinx.android.parcel.Parcelize

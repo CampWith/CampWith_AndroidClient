@@ -5,7 +5,7 @@
 
         <variable
             name="ItemCampCar"
-            type="com.example.campwith.data.camp.CampCarItem" />
+            type="com.example.campwith.data.camp.response.CampCarItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

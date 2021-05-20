@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.campwith.R
-import com.example.campwith.data.camp.CampDetailResponse
+import com.example.campwith.data.camp.response.CampDetailResponse
 import com.example.campwith.data.review.Item
 import com.example.campwith.presentation.campdetail.adapter.CampReviewAdapter
 import kotlinx.android.synthetic.main.fragment_camp_review.*

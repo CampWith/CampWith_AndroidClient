@@ -1,4 +1,4 @@
-package com.example.campwith.data.camp
+package com.example.campwith.data.camp.response
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

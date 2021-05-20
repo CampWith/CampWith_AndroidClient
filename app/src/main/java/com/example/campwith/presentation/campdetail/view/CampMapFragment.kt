@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.UiThread
 import com.example.campwith.R
-import com.example.campwith.data.camp.CampDetailResponse
+import com.example.campwith.data.camp.response.CampDetailResponse
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapFragment

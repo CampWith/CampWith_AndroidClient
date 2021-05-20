@@ -1,8 +1,8 @@
 package com.example.campwith.remote
 
-import com.example.campwith.data.camp.CampCarResponse
-import com.example.campwith.data.camp.CampDetailResponse
-import com.example.campwith.data.camp.CampResponse
+import com.example.campwith.data.camp.response.CampCarResponse
+import com.example.campwith.data.camp.response.CampDetailResponse
+import com.example.campwith.data.camp.response.CampResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
