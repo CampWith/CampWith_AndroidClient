@@ -7,12 +7,68 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="200dp"
+        <TextView
+            style="@style/bold_basic"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_gravity="center"
-            android:layout_margin="50dp"
-            app:srcCompat="@drawable/logo" />
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="CampWith" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_banner"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_page_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:text="1"
+                android:textColor="#fff"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_all"
+                app:layout_constraintEnd_toStartOf="@+id/tv_all"
+                app:layout_constraintTop_toTopOf="@+id/tv_all" />
+
+
+            <TextView
+                android:id="@+id/tv_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="/2"
+                android:textColor="#fff"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_see_all"
+                app:layout_constraintEnd_toStartOf="@+id/tv_see_all"
+                app:layout_constraintTop_toTopOf="@+id/tv_see_all" />
+
+            <TextView
+                android:id="@+id/tv_see_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:alpha="0.7"
+                android:background="@drawable/background_see_all"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:text="모두 보기"
+                app:layout_constraintBottom_toBottomOf="@+id/vp_banner"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:layout_width="match_parent"
@@ -24,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:text="지역별 캠핑장 조회"
             android:textColor="@color/black"
             android:textSize="25dp" />
