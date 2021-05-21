@@ -15,13 +15,13 @@
 
     <item
         android:id="@+id/main_camp_tip"
-        android:icon="@drawable/ic_lightbulb"
+        android:icon="@drawable/ic_lamp"
         android:title="캠핑팁"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/main_mypage"
-        android:icon="@drawable/ic_user"
+        android:icon="@drawable/ic_person"
         android:title="마이페이지"
         app:showAsAction="always" />
 </menu>

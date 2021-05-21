@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import com.example.campwith.R
 import com.example.campwith.databinding.FragmentCityDialogBinding
 import com.example.campwith.presentation.base.BaseDialogFragment
 import com.example.campwith.presentation.camplist.view.CampListActivity
+import kotlinx.android.synthetic.main.fragment_city_dialog.*
 
 class CityDialogFragment : BaseDialogFragment<FragmentCityDialogBinding>(R.layout.fragment_city_dialog) {
 
@@ -19,6 +21,7 @@ class CityDialogFragment : BaseDialogFragment<FragmentCityDialogBinding>(R.layou
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_city_dialog, container, false)
+        view.findViewById<ImageView>(R.id.btn_cancle).setOnClickListener { dismiss() }
         for(i in 1..8){
             val resName="btn_region"
             val resId = resources.getIdentifier(resName+i,"id", activity?.packageName)
@@ -26,6 +29,7 @@ class CityDialogFragment : BaseDialogFragment<FragmentCityDialogBinding>(R.layou
             btn.setOnClickListener {
                 val intent = Intent(activity, CampListActivity::class.java)
                 intent.putExtra("doName", btn.text)
+                dismiss()
                 startActivity(intent)
             }
         }

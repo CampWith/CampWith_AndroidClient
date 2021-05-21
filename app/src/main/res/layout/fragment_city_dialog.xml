@@ -1,94 +1,160 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:background="@color/white_gray">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="지역을 선택해 주세요"
-            style="@style/medium_basic"
-            android:textSize="20dp"
-            android:textColor="@color/black"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:gravity="center"/>
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_region1"
+            <ImageView
+                android:id="@+id/btn_cancle"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close" />
+
+            <TextView
+                android:id="@+id/tv_region"
+                style="@style/medium_basic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="지역을 선택해 주세요"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white_gray" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="경기도"
-            style="@style/medium_basic_18sp"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_region2"
+            <Button
+                android:id="@+id/btn_region1"
+                style="@style/medium_basic_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_region_btn"
+                android:text="경기도" />
+
+            <Button
+                android:id="@+id/btn_region2"
+                style="@style/medium_basic_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_region_btn"
+                android:text="강원도" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="강원도"
-            style="@style/medium_basic_18sp"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_region3"
+            <Button
+                android:id="@+id/btn_region3"
+                style="@style/medium_basic_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_region_btn"
+                android:text="충청북도" />
+
+            <Button
+                android:id="@+id/btn_region4"
+                style="@style/medium_basic_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_region_btn"
+                android:text="충청남도" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="충청북도"
-            style="@style/medium_basic_18sp"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_region4"
+            <Button
+                android:id="@+id/btn_region5"
+                style="@style/medium_basic_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_region_btn"
+                android:text="경상북도" />
+
+            <Button
+                android:id="@+id/btn_region6"
+                style="@style/medium_basic_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_region_btn"
+                android:text="경상남도" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="충청남도"
-            style="@style/medium_basic_18sp"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_region5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="경상북도"
-            style="@style/medium_basic_18sp"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
+            <Button
+                android:id="@+id/btn_region7"
+                style="@style/medium_basic_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_region_btn"
+                android:text="전라북도" />
 
-        <Button
-            android:id="@+id/btn_region6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="경상남도"
-            style="@style/medium_basic_18sp"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
+            <Button
+                android:id="@+id/btn_region8"
+                style="@style/medium_basic_18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_region_btn"
+                android:text="전라남도" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_region7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="전라북도"
-            style="@style/medium_basic_18sp"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
-
-        <Button
-            android:id="@+id/btn_region8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="전라남도"
-            style="@style/medium_basic_18sp"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
     </LinearLayout>
 </layout>

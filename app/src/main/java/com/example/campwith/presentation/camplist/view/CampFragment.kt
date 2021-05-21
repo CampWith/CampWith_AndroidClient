@@ -2,6 +2,7 @@ package com.example.campwith.presentation.camplist.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenResumed
@@ -37,6 +38,10 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
 
         binding.llContainer.setOnClickListener {
             val cityDialogFragment = CityDialogFragment()
+            cityDialogFragment.setStyle(
+                DialogFragment.STYLE_NO_TITLE,
+                android.R.style.Theme_Holo_Light
+            );
             activity?.let { it1 -> cityDialogFragment.show(it1.supportFragmentManager, "dialog") }
         }
         initViewPager2()
