@@ -1,6 +1,7 @@
 package com.example.campwith.presentation.campdetail.view
 
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
@@ -15,7 +16,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CampDetailActivity :
     BaseActivity<ActivityCampDetailBinding, CampDetailViewModel>(R.layout.activity_camp_detail) {
-
     override val viewModel: CampDetailViewModel by viewModel()
     lateinit var id: String
     lateinit var campItem: CampDetailResponse
@@ -42,6 +42,15 @@ class CampDetailActivity :
                 campMapFragment.arguments = bundle
             }
         )
+
+        this.runOnUiThread {
+            binding.toolbarActivityCampDetail.run {
+                setBackBtnVisible(true)
+                setCancleBtnVisible(false)
+                setLogoVisible(false)
+                setBackBtnClick(View.OnClickListener { finish() })
+            }
+        }
 
         supportFragmentManager.beginTransaction().add(R.id.fl_container, campReviewFragment)
             .commit();

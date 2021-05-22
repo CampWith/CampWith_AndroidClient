@@ -9,10 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 
-abstract class BaseDialogFragment<B: ViewDataBinding>
-    (@LayoutRes private val layoutResId: Int) : DialogFragment()
-{
+abstract class BaseDialogFragment<B : ViewDataBinding, VM : BaseViewModel>
+    (@LayoutRes private val layoutResId: Int) : DialogFragment() {
     protected lateinit var binding: B
+    protected abstract val viewModel: VM
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,4 +23,8 @@ abstract class BaseDialogFragment<B: ViewDataBinding>
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = this
+    }
 }

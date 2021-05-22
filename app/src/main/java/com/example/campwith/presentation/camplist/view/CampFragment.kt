@@ -23,11 +23,18 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
     Interaction {
     private lateinit var viewPagerAdapter: ViewPagerAdapter
     private var isRunning = true
-
     override val viewModel: CampViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.runOnUiThread {
+            binding.toolbarFragmentCamp.run {
+                setBackBtnVisible(false)
+                setCancleBtnVisible(false)
+                setLogoVisible(true)
+            }
+        }
 
         viewModel.setBannerItems(
             listOf(

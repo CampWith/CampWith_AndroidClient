@@ -7,6 +7,7 @@ import com.example.campwith.databinding.ActivityMainBinding
 import com.example.campwith.presentation.base.BaseActivity
 import com.example.campwith.presentation.campcarlist.view.CampCarListFragment
 import com.example.campwith.presentation.camplist.view.CampFragment
+import com.example.campwith.presentation.camplist.view.CampListFragment
 import com.example.campwith.presentation.main.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,5 +32,16 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
     private fun bottomNavigationReplaceFragment(fragment: Fragment): Boolean {
         supportFragmentManager.beginTransaction().replace(binding.frame.id, fragment).commit()
         return true
+    }
+
+    fun replaceFragment(region: String?) {
+        if (region != null) {
+            supportFragmentManager.beginTransaction()
+                .replace(binding.frame.id, CampListFragment.newInstance(region)).commit()
+        } else {
+            supportFragmentManager.beginTransaction().replace(binding.frame.id, CampFragment())
+                .commit()
+        }
+
     }
 }

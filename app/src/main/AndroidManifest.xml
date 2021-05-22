@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.camplist.view.CampListActivity"></activity>
+        <activity android:name=".presentation.camplist.view.CampListFragment"></activity>
         <activity android:name=".presentation.campdetail.view.CampDetailActivity"></activity>
         <activity android:name=".presentation.main.view.MainActivity">
             <intent-filter>

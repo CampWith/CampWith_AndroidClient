@@ -7,12 +7,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/logo" />
+        <com.example.campwith.presentation.custom.CustomToolbar
+            android:id="@+id/toolbar_fragment_camp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -110,7 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|right"
-                android:text="클릭해서 위치를 설정해주세요"
+                android:text="클릭해서 지역을 설정해주세요"
                 android:textColor="@color/dark_gray" />
 
         </LinearLayout>
