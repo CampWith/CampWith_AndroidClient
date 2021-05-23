@@ -5,7 +5,7 @@
 
         <variable
             name="ItemCamp"
-            type="com.example.campwith.data.camp.response.CampItem" />
+            type="com.example.campwith.data.camp.response.CampResponseItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,8 +28,8 @@
 
                 <ImageView
                     android:id="@+id/iv_camp_item"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/ic_baseline_image_24" />
@@ -37,11 +37,10 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -49,21 +48,47 @@
                     style="@style/regular_basic_12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/background_camp_type"
                     android:text="캠핑유형"
-                    android:textColor="@color/red"
-                    android:background="@drawable/background_camp_type" />
+                    android:textColor="@color/red" />
 
                 <TextView
                     style="@style/medium_basic_16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:layout_marginBottom="1dp"
                     android:text="@{ItemCamp.facltNm}"
                     android:textColor="@color/black" />
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/tv_score_avg"
+                        style="@style/medium_basic_12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="★"
+                        android:textColor="@color/red"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_score_num_avg"
+                        style="@style/bold_basic_12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="5"
+                        android:textColor="@color/black"
+                        app:layout_constraintLeft_toRightOf="@id/tv_score_avg"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <TextView
-                    style="@style/medium_basic_12sp"
+                    style="@style/regular_basic_12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{ItemCamp.addr1}"

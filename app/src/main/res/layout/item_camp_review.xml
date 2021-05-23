@@ -10,58 +10,77 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="110dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:id="@+id/iv_user"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_image_24" />
+            app:srcCompat="@drawable/ic_person"
+            app:tint="@color/gray" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_user_nm"
+            style="@style/medium_basic_14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:orientation="vertical"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="48dp"
+            android:text="@{ItemReview.name}"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                style="@style/medium_basic_14sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{ItemReview.name}"
-                android:textColor="@color/black" />
+        <TextView
+            style="@style/regular_basic_12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@{ItemReview.date}"
+            android:textColor="@color/dark_gray"
+            app:layout_constraintBottom_toBottomOf="@id/tv_user_nm"
+            app:layout_constraintLeft_toRightOf="@id/tv_user_nm" />
 
-            <TextView
-                style="@style/medium_basic_14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:text="@{ItemReview.date}"
-                android:textColor="@color/dark_gray" />
+        <TextView
+            android:id="@+id/tv_score"
+            style="@style/medium_basic_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@{ItemReview.score}"
+            android:textColor="@color/red"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                style="@style/medium_basic_14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{ItemReview.score}"
-                android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/tv_score_num"
+            style="@style/bold_basic_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toRightOf="@id/tv_score"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                style="@style/medium_basic_14sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{ItemReview.text}"
-                android:textColor="@color/black" />
-
-        </LinearLayout>
+        <TextView
+            style="@style/medium_basic_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@{ItemReview.text}"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_score" />
 
         <View
             android:layout_width="match_parent"
