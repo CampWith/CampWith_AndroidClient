@@ -9,5 +9,6 @@ data class CampItem(
     val addr1: String,
     val doNm: String,
     val facltNm: String,
-    val firstImageUrl: String
+    val firstImageUrl: String,
+    val category: Int
 ): Parcelable

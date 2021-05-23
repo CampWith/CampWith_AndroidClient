@@ -13,5 +13,6 @@ data class CampDetailResponse(
     val mapX: Double,
     val mapY: Double,
     val sigunguNm: String,
-    val tel: String
+    val tel: String,
+    val category: Int
 ) : Parcelable
