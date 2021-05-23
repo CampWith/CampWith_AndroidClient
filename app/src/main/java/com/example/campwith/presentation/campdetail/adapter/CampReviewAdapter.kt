@@ -22,6 +22,7 @@ class CampReviewAdapter() : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(reviewItem: Item) {
             binding.itemReview = reviewItem
+            binding.tvScoreNum.text = reviewItem.score.length.toString()
         }
     }
 

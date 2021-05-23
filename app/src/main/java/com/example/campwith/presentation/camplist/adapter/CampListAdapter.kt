@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.campwith.R
-import com.example.campwith.data.camp.response.CampItem
+import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.data.camp.response.CampResponse
 import com.example.campwith.databinding.ItemCampBinding
 import com.example.campwith.presentation.campdetail.view.CampDetailActivity
@@ -25,7 +25,7 @@ class CampListAdapter(val context: Context) : RecyclerView.Adapter<CampListAdapt
 
     inner class Holder(private val binding: ItemCampBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(campItem: CampItem) {
+        fun bind(campItem: CampResponseItem) {
             binding.itemCamp = campItem
             Glide.with(itemView)
                 .load(campItem.firstImageUrl)
