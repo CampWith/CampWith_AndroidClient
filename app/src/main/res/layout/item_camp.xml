@@ -45,11 +45,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/medium_basic_12sp"
+                    android:id="@+id/tv_camp_type"
+                    style="@style/regular_basic_12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="캠핑유형"
-                    android:textColor="@color/white"
+                    android:textColor="@color/red"
                     android:background="@drawable/background_camp_type" />
 
                 <TextView

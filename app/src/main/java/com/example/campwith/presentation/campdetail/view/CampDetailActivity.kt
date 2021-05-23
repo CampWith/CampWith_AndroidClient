@@ -33,6 +33,12 @@ class CampDetailActivity :
             Observer {
                 campItem = it
                 binding.itemCamp = campItem
+                when (campItem.category) {
+                    0 -> binding.tvCampType.text = "오토캠핑"
+                    1 -> binding.tvCampType.text = "일반캠핑"
+                    2 -> binding.tvCampType.text = "카라반"
+                    3 -> binding.tvCampType.text = "글램핑"
+                }
                 Glide.with(this)
                     .load(campItem.firstImageUrl)
                     .into(binding.ivCampDetail)

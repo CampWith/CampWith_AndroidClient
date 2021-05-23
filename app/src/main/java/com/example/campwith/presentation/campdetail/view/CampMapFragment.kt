@@ -49,7 +49,7 @@ class CampMapFragment : Fragment(), OnMapReadyCallback {
         val cameraPosition = CameraPosition(LatLng(campItem!!.mapY, campItem!!.mapX), 20.0)
         naverMap.cameraPosition = cameraPosition
         val marker = Marker()
-        marker.icon = OverlayImage.fromResource(R.drawable.ic_baseline_place_24)
+        marker.icon = OverlayImage.fromResource(R.drawable.ic_round_place_24)
         marker.position = LatLng(campItem!!.mapY, campItem!!.mapX)
         marker.map = naverMap
 

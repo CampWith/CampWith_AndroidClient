@@ -8,67 +8,66 @@
             type="com.example.campwith.data.review.Item" />
     </data>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_camp_review_item"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:cardCornerRadius="10dp"
-        android:layout_margin="5dp"
-        app:cardElevation="1dp"
-        app:cardUseCompatPadding="true"
-        android:background="@color/white">
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_image_24" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                app:srcCompat="@drawable/ic_baseline_image_24"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp" />
-
-            <LinearLayout
+            <TextView
+                style="@style/medium_basic_14sp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp">
+                android:layout_height="wrap_content"
+                android:text="@{ItemReview.name}"
+                android:textColor="@color/black" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/medium_basic_14sp"
-                    android:textColor="@color/black"
-                    android:text="@{ItemReview.name}" />
+            <TextView
+                style="@style/medium_basic_14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="@{ItemReview.date}"
+                android:textColor="@color/dark_gray" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="@{ItemReview.date}"
-                    style="@style/medium_basic_14sp"
-                    android:textColor="@color/dark_gray" />
+            <TextView
+                style="@style/medium_basic_14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{ItemReview.score}"
+                android:textColor="@color/black" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{ItemReview.score}"
-                    style="@style/medium_basic_14sp"
-                    android:textColor="@color/black" />
+            <TextView
+                style="@style/medium_basic_14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{ItemReview.text}"
+                android:textColor="@color/black" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{ItemReview.text}"
-                    style="@style/medium_basic_14sp"
-                    android:textColor="@color/black" />
-
-            </LinearLayout>
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white_gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

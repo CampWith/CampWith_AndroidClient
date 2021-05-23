@@ -23,12 +23,19 @@ class CampListAdapter(val context: Context) : RecyclerView.Adapter<CampListAdapt
         notifyDataSetChanged()
     }
 
-    inner class Holder(private val binding: ItemCampBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class Holder(private val binding: ItemCampBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(campItem: CampItem) {
             binding.itemCamp = campItem
             Glide.with(itemView)
                 .load(campItem.firstImageUrl)
                 .into(binding.ivCampItem)
+            when (campItem.category) {
+                0 -> binding.tvCampType.text = "오토캠핑"
+                1 -> binding.tvCampType.text = "일반캠핑"
+                2 -> binding.tvCampType.text = "카라반"
+                3 -> binding.tvCampType.text = "글램핑"
+            }
             binding.cvCampItem.setOnClickListener {
                 val intent = Intent(context, CampDetailActivity::class.java)
                 intent.putExtra("id", campItem._id)
@@ -37,8 +44,14 @@ class CampListAdapter(val context: Context) : RecyclerView.Adapter<CampListAdapt
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder
-        = Holder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_camp, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder = Holder(
+        DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.item_camp,
+            parent,
+            false
+        )
+    )
 
     override fun getItemCount(): Int = campList.size
 

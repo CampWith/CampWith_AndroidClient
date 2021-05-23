@@ -27,7 +27,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_region_btn"
-                android:text="경기도" />
+                android:text="경기도"
+                android:textColor="@drawable/color_region_btn_text" />
 
             <Button
                 android:id="@+id/btn_region2"
@@ -37,7 +38,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_region_btn"
-                android:text="강원도" />
+                android:text="강원도"
+                android:textColor="@drawable/color_region_btn_text" />
         </LinearLayout>
 
         <LinearLayout
@@ -55,7 +57,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_region_btn"
-                android:text="충청북도" />
+                android:text="충청북도"
+                android:textColor="@drawable/color_region_btn_text" />
 
             <Button
                 android:id="@+id/btn_region4"
@@ -65,7 +68,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_region_btn"
-                android:text="충청남도" />
+                android:text="충청남도"
+                android:textColor="@drawable/color_region_btn_text" />
         </LinearLayout>
 
         <LinearLayout
@@ -83,7 +87,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_region_btn"
-                android:text="경상북도" />
+                android:text="경상북도"
+                android:textColor="@drawable/color_region_btn_text" />
 
             <Button
                 android:id="@+id/btn_region6"
@@ -93,7 +98,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_region_btn"
-                android:text="경상남도" />
+                android:text="경상남도"
+                android:textColor="@drawable/color_region_btn_text" />
         </LinearLayout>
 
         <LinearLayout
@@ -111,7 +117,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_region_btn"
-                android:text="전라북도" />
+                android:text="전라북도"
+                android:textColor="@drawable/color_region_btn_text" />
 
             <Button
                 android:id="@+id/btn_region8"
@@ -121,7 +128,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_region_btn"
-                android:text="전라남도" />
+                android:text="전라남도"
+                android:textColor="@drawable/color_region_btn_text" />
         </LinearLayout>
 
     </LinearLayout>
