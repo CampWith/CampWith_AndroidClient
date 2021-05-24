@@ -65,13 +65,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp">
 
-                    <TextView
-                        android:id="@+id/tv_score_avg"
-                        style="@style/medium_basic_12sp"
+                    <RatingBar
+                        android:id="@+id/rating_bar_camp"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="★"
-                        android:textColor="@color/red"
+                        android:isIndicator="true"
+                        android:numStars="1"
+                        android:rating="@{ItemCamp.mean_rate}"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,9 +83,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:text="5"
+                        android:text="@{String.valueOf(ItemCamp.mean_rate)}"
                         android:textColor="@color/black"
-                        app:layout_constraintLeft_toRightOf="@id/tv_score_avg"
+                        app:layout_constraintLeft_toRightOf="@id/rating_bar_camp"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

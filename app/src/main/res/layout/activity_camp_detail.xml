@@ -8,180 +8,219 @@
             type="com.example.campwith.data.camp.response.CampDetailResponse" />
     </data>
 
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <com.example.campwith.presentation.custom.CustomToolbar
-            android:id="@+id/toolbar_activity_camp_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <ImageView
-            android:id="@+id/iv_camp_detail"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_baseline_image_24" />
-
-        <TextView
-            android:id="@+id/tv_camp_type"
-            style="@style/regular_basic_12sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/background_camp_type"
-            android:text="캠핑유형"
-            android:textColor="@color/red" />
-
-        <TextView
-            style="@style/medium_basic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
             android:gravity="center"
-            android:text="@{ItemCamp.facltNm}"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+            <com.example.campwith.presentation.custom.CustomToolbar
+                android:id="@+id/toolbar_activity_camp_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/iv_camp_detail"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_baseline_image_24" />
 
             <TextView
-                android:id="@+id/tv_score_avg"
-                style="@style/medium_basic_16sp"
+                android:id="@+id/tv_camp_type"
+                style="@style/regular_basic_12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="★★★★★"
-                android:textColor="@color/red"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_camp_type"
+                android:text="캠핑유형"
+                android:textColor="@color/red" />
 
             <TextView
-                android:id="@+id/tv_score_num_avg"
-                style="@style/bold_basic_16sp"
-                android:layout_width="wrap_content"
+                style="@style/medium_basic"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="5"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="@{ItemCamp.facltNm}"
                 android:textColor="@color/black"
-                app:layout_constraintLeft_toRightOf="@id/tv_score_avg"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textSize="20dp" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp">
+
+                <RatingBar
+                    android:id="@+id/rating_bar_detail"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="@{ItemCamp.mean_rate}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_score_num_avg"
+                    style="@style/bold_basic_14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@{String.valueOf(ItemCamp.mean_rate)}"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toRightOf="@id/rating_bar_detail"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/view_seperator"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_phone_call_2" />
+
+                    <TextView
+                        style="@style/regular_basic_12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="전화"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view_seperator"
+                    android:layout_width="1dp"
+                    android:layout_height="18dp"
+                    android:background="@color/white_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/view_seperator"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_baseline_home_24" />
+
+                    <TextView
+                        style="@style/regular_basic_12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:text="홈"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_review_write"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_review_write"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/view_seperator"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintRight_toRightOf="parent">
 
                 <ImageView
+                    android:id="@+id/iv_write"
                     android:layout_width="13dp"
                     android:layout_height="13dp"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_phone_call_2" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_edit_2"
+                    app:tint="@drawable/color_review_write" />
 
                 <TextView
-                    android:id="@+id/textView"
                     style="@style/regular_basic_12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="전화"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+                    android:layout_marginStart="3dp"
+                    android:text="리뷰작성"
+                    android:textColor="@drawable/color_review_write"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/iv_write"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:id="@+id/view_seperator"
-                android:layout_width="1dp"
-                android:layout_height="15dp"
-                android:background="@color/white_gray"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
                 android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/white_gray" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_tabs"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/view_seperator"
-                app:layout_constraintTop_toTopOf="parent">
+                android:background="@color/white"
+                app:tabIndicatorColor="@color/red"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="3dp">
 
-                <ImageView
-                    android:layout_width="17dp"
-                    android:layout_height="17dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_baseline_home_24" />
-
-                <TextView
-                    style="@style/regular_basic_12sp"
+                <com.google.android.material.tabs.TabItem
+                    style="@style/medium_basic_18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:text="홈"
-                    android:textColor="@color/black" />
+                    android:background="@color/white"
+                    android:text="리뷰" />
 
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.tabs.TabItem
+                    style="@style/medium_basic_18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text="정보" />
+            </com.google.android.material.tabs.TabLayout>
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:background="@color/white_gray" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tl_tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:tabIndicatorColor="@color/red"
-            app:tabIndicatorFullWidth="false"
-            app:tabIndicatorHeight="3dp">
-
-            <com.google.android.material.tabs.TabItem
-                style="@style/medium_basic_18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:text="리뷰" />
-
-            <com.google.android.material.tabs.TabItem
-                style="@style/medium_basic_18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:text="지도" />
-        </com.google.android.material.tabs.TabLayout>
-
-        <FrameLayout
-            android:id="@+id/fl_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </FrameLayout>
-    </LinearLayout>
-
+            <FrameLayout
+                android:id="@+id/fl_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false"></FrameLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

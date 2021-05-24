@@ -71,7 +71,7 @@
             android:background="@color/white_gray" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ll_container"
+            android:id="@+id/container_search"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -113,7 +113,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/ll_normal"
+                android:id="@+id/container_normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -140,7 +140,7 @@
                 android:background="@color/white_gray" />
 
             <LinearLayout
-                android:id="@+id/ll_glamping"
+                android:id="@+id/container_glamping"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -167,7 +167,7 @@
                 android:background="@color/white_gray" />
 
             <LinearLayout
-                android:id="@+id/ll_auto"
+                android:id="@+id/container_auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -194,7 +194,7 @@
                 android:background="@color/white_gray" />
 
             <LinearLayout
-                android:id="@+id/ll_caraven"
+                android:id="@+id/container_caraven"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

@@ -1,14 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.campdetail.view.CampMapFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <fragment
-        android:id="@+id/fragment_map"
+    <data>
+
+        <variable
+            name="ItemCamp"
+            type="com.example.campwith.data.camp.response.CampDetailResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.naver.maps.map.MapFragment" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        tools:context=".presentation.campdetail.view.CampMapFragment">
 
-</FrameLayout>
+        <fragment
+            android:id="@+id/fragment_map"
+            android:name="com.naver.maps.map.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/regular_basic_12sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="@{ItemCamp.addr1}"
+            android:textColor="@color/dark_gray"
+            app:layout_constraintTop_toBottomOf="@id/fragment_map" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
