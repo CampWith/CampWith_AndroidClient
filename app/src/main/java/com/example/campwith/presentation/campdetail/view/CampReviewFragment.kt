@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.campwith.R
 import com.example.campwith.data.camp.response.CampDetailResponse
-import com.example.campwith.data.review.Item
+import com.example.campwith.data.camp.response.ReviewResponseItem
 import com.example.campwith.presentation.campdetail.adapter.CampReviewAdapter
 import kotlinx.android.synthetic.main.fragment_camp_review.*
 
@@ -33,11 +33,9 @@ class CampReviewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         rv_camp_review_list.adapter = campReviewAdapter
-        campReviewAdapter.addAll(
-            mutableListOf(
-                Item("김뫄뫄", "2020.12.12", "★★★★★", "너무좋아요!"),
-                Item("박뫄뫄", "2020.12.24", "★", "최악임")
-            )
-        )
+    }
+
+    fun addReview(reviews: List<ReviewResponseItem>) {
+        campReviewAdapter.addAll(reviews)
     }
 }

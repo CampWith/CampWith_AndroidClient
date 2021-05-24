@@ -5,14 +5,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campwith.R
-import com.example.campwith.data.review.Item
+import com.example.campwith.data.camp.response.ReviewResponseItem
 import com.example.campwith.databinding.ItemCampReviewBinding
 
 class CampReviewAdapter() : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
 
-    private var reviewList = mutableListOf<Item>()
+    private var reviewList = mutableListOf<ReviewResponseItem>()
 
-    fun addAll(newReviewList: List<Item>) {
+    fun addAll(newReviewList: List<ReviewResponseItem>) {
         reviewList.clear()
         reviewList.addAll(newReviewList)
         notifyDataSetChanged()
@@ -20,9 +20,8 @@ class CampReviewAdapter() : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
 
     inner class Holder(private val binding: ItemCampReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(reviewItem: Item) {
+        fun bind(reviewItem: ReviewResponseItem) {
             binding.itemReview = reviewItem
-            binding.tvScoreNum.text = reviewItem.score.length.toString()
         }
     }
 
