@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.annotation.UiThread
 import com.example.campwith.R
 import com.example.campwith.data.camp.response.CampDetailResponse
+import com.example.campwith.databinding.FragmentCampMapBinding
+import com.example.campwith.presentation.base.BaseFragment
+import com.example.campwith.presentation.campdetail.viewmodel.CampMapViewModel
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapFragment
@@ -15,10 +18,14 @@ import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 private const val ARG_PARAM = "campItem"
 
-class CampMapFragment : Fragment(), OnMapReadyCallback {
+class CampMapFragment :
+    BaseFragment<FragmentCampMapBinding, CampMapViewModel>(R.layout.fragment_camp_map),
+    OnMapReadyCallback {
+    override val viewModel: CampMapViewModel by viewModel()
     private var campItem: CampDetailResponse? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,16 +39,13 @@ class CampMapFragment : Fragment(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             campItem = it.getParcelable(ARG_PARAM)
         }
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_camp_map, container, false)
+        binding.itemCamp = campItem
     }
 
     @UiThread
