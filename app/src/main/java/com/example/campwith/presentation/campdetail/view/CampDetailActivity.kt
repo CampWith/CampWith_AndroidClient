@@ -56,7 +56,7 @@ class CampDetailActivity :
             }
         }
 
-        supportFragmentManager.beginTransaction().add(R.id.fl_container, campReviewFragment)
+        supportFragmentManager.beginTransaction().add(R.id.container_detail, campReviewFragment)
             .commit()
 
         binding.containerReviewWrite.setOnClickListener {
@@ -79,7 +79,7 @@ class CampDetailActivity :
                     1 -> selectedFragment = campMapFragment
                 }
                 supportFragmentManager.beginTransaction().replace(
-                    R.id.fl_container,
+                    R.id.container_detail,
                     selectedFragment
                 ).commit()
             }
