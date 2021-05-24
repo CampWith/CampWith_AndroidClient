@@ -9,6 +9,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenResumed
 import androidx.viewpager2.widget.ViewPager2
+import com.example.campwith.CampTypeConstant.AUTO_TYPE
+import com.example.campwith.CampTypeConstant.CARAVEN_TYPE
+import com.example.campwith.CampTypeConstant.GLAMPING_TYPE
+import com.example.campwith.CampTypeConstant.NORMAL_TYPE
 import com.example.campwith.R
 import com.example.campwith.data.camp.model.BannerItem
 import com.example.campwith.databinding.FragmentCampBinding
@@ -66,6 +70,17 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
                 )
             }
         }
+
+        binding.llAuto.setOnClickListener { currentActivity.replaceFragment(null, AUTO_TYPE) }
+        binding.llNormal.setOnClickListener { currentActivity.replaceFragment(null, NORMAL_TYPE) }
+        binding.llGlamping.setOnClickListener {
+            currentActivity.replaceFragment(
+                null,
+                GLAMPING_TYPE
+            )
+        }
+        binding.llCaraven.setOnClickListener { currentActivity.replaceFragment(null, CARAVEN_TYPE) }
+
         initViewPager2()
         subscribeObservers()
         autoScrollViewPager()

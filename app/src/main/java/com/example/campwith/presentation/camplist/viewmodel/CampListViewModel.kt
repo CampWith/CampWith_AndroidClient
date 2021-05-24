@@ -15,7 +15,7 @@ class CampListViewModel : BaseViewModel() {
     val campListLiveData: LiveData<CampResponse>
         get() = _campListLiveData
 
-    fun getCampList(region: String){
+    fun getCampList(region: String) {
         addDisposable(
             remoteDataSourceImpl.getCamp(region)
                 .applySchedulers()
@@ -23,7 +23,22 @@ class CampListViewModel : BaseViewModel() {
                     {
                         _campListLiveData.value = it
                         Log.d("test1", it.toString())
-                    },{
+                    }, {
+                        Log.d("test2", it.toString())
+                    }
+                )
+        )
+    }
+
+    fun getTypeCampList(type: Int) {
+        addDisposable(
+            remoteDataSourceImpl.getTypeCamp(type)
+                .applySchedulers()
+                .subscribe(
+                    {
+                        _campListLiveData.value = it
+                        Log.d("test1", it.toString())
+                    }, {
                         Log.d("test2", it.toString())
                     }
                 )

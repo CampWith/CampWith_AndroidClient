@@ -36,10 +36,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
         return true
     }
 
-    fun replaceFragment(region: String?) {
+    fun replaceFragment(region: String?, type: Int?) {
         if (region != null) {
             supportFragmentManager.beginTransaction()
                 .replace(binding.frame.id, CampListFragment.newInstance(region)).commit()
+        } else if (type != null) {
+            supportFragmentManager.beginTransaction()
+                .replace(binding.frame.id, CampListFragment.newInstance(type)).commit()
         } else {
             supportFragmentManager.beginTransaction().replace(binding.frame.id, CampFragment())
                 .commit()

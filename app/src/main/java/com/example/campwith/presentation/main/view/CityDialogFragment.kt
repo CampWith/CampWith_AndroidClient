@@ -40,7 +40,7 @@ class CityDialogFragment :
             val resId = resources.getIdentifier(resName + i, "id", activity?.packageName)
             val btn = view.findViewById<Button>(resId)
             btn.setOnClickListener {
-                currentActivity.replaceFragment(btn.text.toString())
+                currentActivity.replaceFragment(btn.text.toString(), null)
                 dismiss()
             }
         }

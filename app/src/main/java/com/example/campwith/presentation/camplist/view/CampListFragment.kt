@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
 import com.example.campwith.databinding.FragmentCampListBinding
 import com.example.campwith.presentation.base.BaseFragment
@@ -17,6 +18,7 @@ class CampListFragment :
     BaseFragment<FragmentCampListBinding, CampListViewModel>(R.layout.fragment_camp_list) {
     override val viewModel: CampListViewModel by viewModel()
     private var region: String? = null
+    private var type: Int? = null
     private lateinit var currentActivity: MainActivity
 
     override fun onAttach(context: Context) {
@@ -27,7 +29,8 @@ class CampListFragment :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            region = it.getString(ARG_PARAM)
+            region = it.getString(ARG_PARAM1)
+            type = it.getInt(ARG_PARAM2)
         }
     }
 
@@ -44,7 +47,28 @@ class CampListFragment :
                     setCancleBtnVisible(false)
                     setLogoVisible(false)
                     setTitle(region!!)
-                    setBackBtnClick(View.OnClickListener { currentActivity.replaceFragment(null) })
+                    setBackBtnClick(View.OnClickListener {
+                        currentActivity.replaceFragment(
+                            null,
+                            null
+                        )
+                    })
+                }
+            }
+        } else if (type != null) {
+            viewModel.getTypeCampList(type!!)
+            currentActivity.runOnUiThread {
+                binding.toolbarActivityCampList.run {
+                    setBackBtnVisible(true)
+                    setCancleBtnVisible(false)
+                    setLogoVisible(false)
+                    setTitle(getTypeName(type!!))
+                    setBackBtnClick(View.OnClickListener {
+                        currentActivity.replaceFragment(
+                            null,
+                            null
+                        )
+                    })
                 }
             }
         }
@@ -58,14 +82,24 @@ class CampListFragment :
     }
 
     companion object {
-        private const val ARG_PARAM = "REGION"
+        private const val ARG_PARAM1 = "REGION"
+        private const val ARG_PARAM2 = "TYPE"
 
         @JvmStatic
         fun newInstance(param: String) =
             CampListFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM, param)
+                    putString(ARG_PARAM1, param)
                 }
             }
+
+        @JvmStatic
+        fun newInstance(param: Int) =
+            CampListFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(ARG_PARAM2, param)
+                }
+            }
+
     }
 }
