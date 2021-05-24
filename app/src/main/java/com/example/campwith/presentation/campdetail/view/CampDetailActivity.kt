@@ -1,5 +1,6 @@
 package com.example.campwith.presentation.campdetail.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -42,6 +43,7 @@ class CampDetailActivity :
                 bundle.putParcelable("campItem", campItem)
                 campReviewFragment.arguments = bundle
                 campMapFragment.arguments = bundle
+                campReviewFragment.addReview(campItem.reviews)
             }
         )
 
@@ -55,7 +57,12 @@ class CampDetailActivity :
         }
 
         supportFragmentManager.beginTransaction().add(R.id.fl_container, campReviewFragment)
-            .commit();
+            .commit()
+
+        binding.containerReviewWrite.setOnClickListener {
+            val intent = Intent(this, ReviewWriteActivity::class.java)
+            startActivity(intent)
+        }
 
         tl_tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 

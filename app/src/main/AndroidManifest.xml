@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.camptip.view.CampToolActivity"></activity>
-        <activity android:name=".presentation.camplist.view.CampListFragment" />
+        <activity android:name=".presentation.campdetail.view.ReviewWriteActivity"></activity>
+        <activity android:name=".presentation.camptip.view.CampToolActivity" />
         <activity android:name=".presentation.campdetail.view.CampDetailActivity" />
         <activity android:name=".presentation.main.view.MainActivity">
             <intent-filter>
