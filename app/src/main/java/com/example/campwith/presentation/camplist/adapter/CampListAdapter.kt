@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
 import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.data.camp.response.CampResponse
@@ -30,12 +31,7 @@ class CampListAdapter(val context: Context) : RecyclerView.Adapter<CampListAdapt
             Glide.with(itemView)
                 .load(campItem.firstImageUrl)
                 .into(binding.ivCampItem)
-            when (campItem.category) {
-                0 -> binding.tvCampType.text = "오토캠핑"
-                1 -> binding.tvCampType.text = "일반캠핑"
-                2 -> binding.tvCampType.text = "카라반"
-                3 -> binding.tvCampType.text = "글램핑"
-            }
+            binding.tvCampType.text = getTypeName(campItem.category)
             binding.cvCampItem.setOnClickListener {
                 val intent = Intent(context, CampDetailActivity::class.java)
                 intent.putExtra("id", campItem._id)

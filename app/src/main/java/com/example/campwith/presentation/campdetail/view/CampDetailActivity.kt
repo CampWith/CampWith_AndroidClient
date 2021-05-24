@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
+import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
 import com.example.campwith.data.camp.response.CampDetailResponse
 import com.example.campwith.databinding.ActivityCampDetailBinding
@@ -33,12 +34,7 @@ class CampDetailActivity :
             Observer {
                 campItem = it
                 binding.itemCamp = campItem
-                when (campItem.category) {
-                    0 -> binding.tvCampType.text = "오토캠핑"
-                    1 -> binding.tvCampType.text = "일반캠핑"
-                    2 -> binding.tvCampType.text = "카라반"
-                    3 -> binding.tvCampType.text = "글램핑"
-                }
+                binding.tvCampType.text = getTypeName(campItem.category)
                 Glide.with(this)
                     .load(campItem.firstImageUrl)
                     .into(binding.ivCampDetail)
