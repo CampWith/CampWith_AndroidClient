@@ -57,7 +57,7 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
             )
         )
 
-        binding.llContainer.setOnClickListener {
+        binding.containerSearch.setOnClickListener {
             val cityDialogFragment = CityDialogFragment()
             cityDialogFragment.setStyle(
                 DialogFragment.STYLE_NO_TITLE,
@@ -71,15 +71,30 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
             }
         }
 
-        binding.llAuto.setOnClickListener { currentActivity.replaceFragment(null, AUTO_TYPE) }
-        binding.llNormal.setOnClickListener { currentActivity.replaceFragment(null, NORMAL_TYPE) }
-        binding.llGlamping.setOnClickListener {
+        binding.containerAuto.setOnClickListener {
+            currentActivity.replaceFragment(
+                null,
+                AUTO_TYPE
+            )
+        }
+        binding.containerNormal.setOnClickListener {
+            currentActivity.replaceFragment(
+                null,
+                NORMAL_TYPE
+            )
+        }
+        binding.containerGlamping.setOnClickListener {
             currentActivity.replaceFragment(
                 null,
                 GLAMPING_TYPE
             )
         }
-        binding.llCaraven.setOnClickListener { currentActivity.replaceFragment(null, CARAVEN_TYPE) }
+        binding.containerCaraven.setOnClickListener {
+            currentActivity.replaceFragment(
+                null,
+                CARAVEN_TYPE
+            )
+        }
 
         initViewPager2()
         subscribeObservers()
