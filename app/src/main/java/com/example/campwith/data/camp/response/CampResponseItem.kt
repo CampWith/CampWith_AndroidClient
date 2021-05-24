@@ -10,5 +10,6 @@ data class CampResponseItem(
     val doNm: String,
     val facltNm: String,
     val firstImageUrl: String,
-    val category: Int
+    val category: Int,
+    val mean_rate: Float
 ) : Parcelable
