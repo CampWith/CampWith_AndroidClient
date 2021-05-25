@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MyApplication"
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,14 +13,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presentation.campdetail.view.ReviewWriteActivity"></activity>
-        <activity android:name=".presentation.camptip.view.CampToolActivity" />
-        <activity android:name=".presentation.campdetail.view.CampDetailActivity" />
-        <activity android:name=".presentation.main.view.MainActivity">
+        <activity android:name="com.example.campwith.presentation.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.campwith.presentation.login.LoginActivity" />
+        <activity android:name=".presentation.campdetail.view.ReviewWriteActivity" />
+        <activity android:name=".presentation.camptip.view.CampToolActivity" />
+        <activity android:name=".presentation.campdetail.view.CampDetailActivity" />
+        <activity android:name=".presentation.main.view.MainActivity" />
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="kakaoc1a3db246ab009083eacf4c0f262a4b1" />
             </intent-filter>
         </activity>
     </application>
