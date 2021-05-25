@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.campcarlist.viewmodel
+package com.example.campwith.presentation.campcar.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

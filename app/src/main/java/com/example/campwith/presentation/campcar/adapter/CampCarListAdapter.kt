@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.campcarlist.adapter
+package com.example.campwith.presentation.campcar.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -1,14 +1,12 @@
 package com.example.campwith.presentation.main.view
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import com.example.campwith.R
 import com.example.campwith.databinding.FragmentCityDialogBinding
 import com.example.campwith.presentation.base.BaseDialogFragment
-import com.example.campwith.presentation.camplist.view.CampListFragment
 import com.example.campwith.presentation.main.viewmodel.CityDialogViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

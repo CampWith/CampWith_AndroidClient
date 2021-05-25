@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.campcarlist.view
+package com.example.campwith.presentation.campcar.view
 
 import android.content.Context
 import android.os.Bundle
@@ -7,8 +7,8 @@ import androidx.lifecycle.Observer
 import com.example.campwith.R
 import com.example.campwith.databinding.FragmentCampCarBinding
 import com.example.campwith.presentation.base.BaseFragment
-import com.example.campwith.presentation.campcarlist.viewmodel.CampCarListViewModel
-import com.example.campwith.presentation.campcarlist.adapter.CampCarListAdapter
+import com.example.campwith.presentation.campcar.viewmodel.CampCarListViewModel
+import com.example.campwith.presentation.campcar.adapter.CampCarListAdapter
 import com.example.campwith.presentation.main.view.MainActivity
 import kotlinx.android.synthetic.main.fragment_camp_car.*
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.camplist.adapter
+package com.example.campwith.presentation.camp.adapter
 
 import android.content.Context
 import android.content.Intent

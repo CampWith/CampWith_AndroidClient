@@ -1,11 +1,11 @@
 package com.example.campwith.di
 
 import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel
-import com.example.campwith.presentation.campcarlist.viewmodel.CampCarListViewModel
+import com.example.campwith.presentation.campcar.viewmodel.CampCarListViewModel
 import com.example.campwith.presentation.campdetail.viewmodel.CampMapViewModel
 import com.example.campwith.presentation.campdetail.viewmodel.CampReviewViewModel
-import com.example.campwith.presentation.camplist.viewmodel.CampListViewModel
-import com.example.campwith.presentation.camplist.viewmodel.CampViewModel
+import com.example.campwith.presentation.camp.viewmodel.CampListViewModel
+import com.example.campwith.presentation.camp.viewmodel.CampViewModel
 import com.example.campwith.presentation.camptip.viewmodel.CampTipViewModel
 import com.example.campwith.presentation.camptip.viewmodel.CampToolViewModel
 import com.example.campwith.presentation.main.viewmodel.CityDialogViewModel

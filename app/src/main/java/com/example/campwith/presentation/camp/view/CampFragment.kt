@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.camplist.view
+package com.example.campwith.presentation.camp.view
 
 import android.content.Context
 import android.content.Intent
@@ -17,8 +17,8 @@ import com.example.campwith.R
 import com.example.campwith.data.camp.model.BannerItem
 import com.example.campwith.databinding.FragmentCampBinding
 import com.example.campwith.presentation.base.BaseFragment
-import com.example.campwith.presentation.camplist.adapter.ViewPagerAdapter
-import com.example.campwith.presentation.camplist.viewmodel.CampViewModel
+import com.example.campwith.presentation.camp.adapter.ViewPagerAdapter
+import com.example.campwith.presentation.camp.viewmodel.CampViewModel
 import com.example.campwith.presentation.camptip.view.CampToolActivity
 import com.example.campwith.presentation.main.view.CityDialogFragment
 import com.example.campwith.presentation.main.view.MainActivity

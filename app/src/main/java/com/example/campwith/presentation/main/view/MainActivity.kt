@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import com.example.campwith.R
 import com.example.campwith.databinding.ActivityMainBinding
 import com.example.campwith.presentation.base.BaseActivity
-import com.example.campwith.presentation.campcarlist.view.CampCarListFragment
-import com.example.campwith.presentation.camplist.view.CampFragment
-import com.example.campwith.presentation.camplist.view.CampListFragment
+import com.example.campwith.presentation.campcar.view.CampCarListFragment
+import com.example.campwith.presentation.camp.view.CampFragment
+import com.example.campwith.presentation.camp.view.CampListFragment
 import com.example.campwith.presentation.camptip.view.CampTipFragment
 import com.example.campwith.presentation.main.viewmodel.MainViewModel
 import com.example.campwith.presentation.mypage.view.MyPageFragment

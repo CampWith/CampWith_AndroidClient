@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.camplist.view
+package com.example.campwith.presentation.camp.view
 
 import android.view.View
 import com.example.campwith.data.camp.model.BannerItem

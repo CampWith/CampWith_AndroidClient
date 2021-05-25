@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.camplist.adapter
+package com.example.campwith.presentation.camp.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campwith.R
 import com.example.campwith.data.camp.model.BannerItem
-import com.example.campwith.presentation.camplist.view.Interaction
+import com.example.campwith.presentation.camp.view.Interaction
 import kotlinx.android.synthetic.main.item_banner.view.*
 
 class ViewPagerAdapter(private val interaction: Interaction) :
