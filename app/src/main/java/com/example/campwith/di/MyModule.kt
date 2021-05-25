@@ -3,6 +3,7 @@ package com.example.campwith.di
 import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel
 import com.example.campwith.presentation.campcarlist.viewmodel.CampCarListViewModel
 import com.example.campwith.presentation.campdetail.viewmodel.CampMapViewModel
+import com.example.campwith.presentation.campdetail.viewmodel.CampReviewViewModel
 import com.example.campwith.presentation.camplist.viewmodel.CampListViewModel
 import com.example.campwith.presentation.camplist.viewmodel.CampViewModel
 import com.example.campwith.presentation.camptip.viewmodel.CampTipViewModel
@@ -27,6 +28,9 @@ val viewModelPart = module {
     }
     viewModel {
         CampDetailViewModel()
+    }
+    viewModel {
+        CampReviewViewModel()
     }
     viewModel {
         CampMapViewModel()
