@@ -10,6 +10,7 @@ import com.example.campwith.presentation.camptip.viewmodel.CampTipViewModel
 import com.example.campwith.presentation.camptip.viewmodel.CampToolViewModel
 import com.example.campwith.presentation.main.viewmodel.CityDialogViewModel
 import com.example.campwith.presentation.main.viewmodel.MainViewModel
+import com.example.campwith.presentation.mypage.viewmodel.MyPageViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -43,6 +44,9 @@ val viewModelPart = module {
     }
     viewModel {
         CampToolViewModel()
+    }
+    viewModel {
+        MyPageViewModel()
     }
 }
 

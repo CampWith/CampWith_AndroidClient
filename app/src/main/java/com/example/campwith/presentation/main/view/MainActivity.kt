@@ -10,6 +10,7 @@ import com.example.campwith.presentation.camplist.view.CampFragment
 import com.example.campwith.presentation.camplist.view.CampListFragment
 import com.example.campwith.presentation.camptip.view.CampTipFragment
 import com.example.campwith.presentation.main.viewmodel.MainViewModel
+import com.example.campwith.presentation.mypage.view.MyPageFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -25,6 +26,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
                 R.id.main_camp -> bottomNavigationReplaceFragment(CampFragment())
                 R.id.main_camp_car -> bottomNavigationReplaceFragment(CampCarListFragment())
                 R.id.main_camp_tip -> bottomNavigationReplaceFragment(CampTipFragment())
+                R.id.main_mypage -> bottomNavigationReplaceFragment(MyPageFragment())
                 else -> false
             }
         }
