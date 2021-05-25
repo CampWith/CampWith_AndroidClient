@@ -27,6 +27,11 @@ android {
         enabled = true
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -84,4 +89,7 @@ dependencies {
 
     // lifecycle
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha01'
+
+    // kakao login
+    implementation "com.kakao.sdk:v2-user:2.5.0" // 카카오 로그인
 }
