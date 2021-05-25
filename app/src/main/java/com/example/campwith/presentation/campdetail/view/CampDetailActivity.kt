@@ -59,11 +59,6 @@ class CampDetailActivity :
         supportFragmentManager.beginTransaction().add(R.id.container_detail, campReviewFragment)
             .commit()
 
-        binding.containerReviewWrite.setOnClickListener {
-            val intent = Intent(this, ReviewWriteActivity::class.java)
-            startActivity(intent)
-        }
-
         tl_tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
             lateinit var selectedFragment: Fragment

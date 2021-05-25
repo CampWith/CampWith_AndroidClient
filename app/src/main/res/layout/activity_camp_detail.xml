@@ -10,7 +10,8 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,6 +85,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -153,40 +155,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/container_review_write"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/background_review_write"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
-
-                <ImageView
-                    android:id="@+id/iv_write"
-                    android:layout_width="13dp"
-                    android:layout_height="13dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_edit_2"
-                    app:tint="@drawable/color_review_write" />
-
-                <TextView
-                    style="@style/regular_basic_12sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:text="리뷰작성"
-                    android:textColor="@drawable/color_review_write"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/iv_write"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
@@ -199,7 +167,8 @@
                 android:background="@color/white"
                 app:tabIndicatorColor="@color/red"
                 app:tabIndicatorFullWidth="false"
-                app:tabIndicatorHeight="3dp">
+                app:tabIndicatorHeight="3dp"
+                app:tabRippleColor="@null">
 
                 <com.google.android.material.tabs.TabItem
                     style="@style/medium_basic_18sp"
@@ -220,7 +189,6 @@
                 android:id="@+id/container_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"
                 android:nestedScrollingEnabled="false" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

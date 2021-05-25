@@ -11,6 +11,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
         android:paddingBottom="5dp"
         tools:context=".presentation.campdetail.view.CampMapFragment">
 
