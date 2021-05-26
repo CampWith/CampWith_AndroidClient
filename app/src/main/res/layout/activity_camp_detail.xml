@@ -161,7 +161,7 @@
                 android:background="@color/white_gray" />
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tl_tabs"
+                android:id="@+id/container_tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
