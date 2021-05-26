@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_review"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -13,15 +14,81 @@
             android:id="@+id/toolbar_activity_camp_review_write"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+        </com.example.campwith.presentation.custom.CustomToolbar>
+
+        <TextView
+            android:id="@+id/tv_nm"
+            style="@style/bold_basic_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="캠핑장"
+            android:textColor="@color/black"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_1"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_activity_camp_review_write" />
+
+        <TextView
+            android:id="@+id/tv_1"
+            style="@style/medium_basic_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="에서"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/tv_nm"
+            app:layout_constraintLeft_toRightOf="@id/tv_nm"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            style="@style/medium_basic_16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="즐긴 캠핑은 어떠셨나요?"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_nm" />
 
         <RatingBar
-            android:id="@+id/ratingBar"
+            android:id="@+id/rating_bar_review_write"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar_activity_camp_review_write" />
+            app:layout_constraintTop_toBottomOf="@id/tv_nm" />
+
+        <EditText
+            android:id="@+id/edit_text_review"
+            android:layout_width="350dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_review_write_edit_text"
+            android:ems="10"
+            android:gravity="top|left"
+            android:hint="내용을 입력해주세요."
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:lines="8"
+            android:scrollbars="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_bar_review_write" />
+
+        <TextView
+            android:id="@+id/tv_review_register"
+            style="@style/bold_basic_18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="등록"
+            android:background="@android:color/transparent"
+            android:textColor="@drawable/color_review_register"
+            app:layout_constraintEnd_toEndOf="@id/edit_text_review"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_review" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
