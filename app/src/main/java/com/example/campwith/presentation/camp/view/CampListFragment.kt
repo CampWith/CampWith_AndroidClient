@@ -37,8 +37,6 @@ class CampListFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val campListAdapter = CampListAdapter(currentActivity)
-
         if (region != null) {
             viewModel.getCampList(region!!)
             currentActivity.runOnUiThread {
@@ -73,7 +71,8 @@ class CampListFragment :
             }
         }
 
-        rv_camp_list.adapter = campListAdapter
+        val campListAdapter = CampListAdapter(currentActivity)
+        binding.rvCampList.adapter = campListAdapter
 
         viewModel.campListLiveData.observe(viewLifecycleOwner,
             Observer {
