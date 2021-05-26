@@ -8,7 +8,7 @@ import com.example.campwith.R
 import com.example.campwith.data.camp.response.ReviewResponseItem
 import com.example.campwith.databinding.ItemCampReviewBinding
 
-class CampReviewAdapter() : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
+class CampReviewAdapter : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
 
     private var reviewList = mutableListOf<ReviewResponseItem>()
 
@@ -16,6 +16,11 @@ class CampReviewAdapter() : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
         reviewList.clear()
         reviewList.addAll(newReviewList)
         notifyDataSetChanged()
+    }
+
+    fun addOne(review: ReviewResponseItem) {
+        reviewList.add(0, review)
+        notifyItemInserted(0)
     }
 
     inner class Holder(private val binding: ItemCampReviewBinding) :

@@ -2,13 +2,18 @@ package com.example.campwith.presentation.campdetail.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
 import com.example.campwith.data.camp.response.CampDetailResponse
+import com.example.campwith.data.camp.response.ReviewResponseItem
 import com.example.campwith.databinding.ActivityCampDetailBinding
 import com.example.campwith.presentation.base.BaseActivity
 import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel
@@ -41,9 +46,10 @@ class CampDetailActivity :
                     .into(binding.ivCampDetail)
                 val bundle = Bundle()
                 bundle.putParcelable("campItem", campItem)
-                campReviewFragment.arguments = bundle
                 campMapFragment.arguments = bundle
-                campReviewFragment.addReview(campItem.reviews)
+                campReviewFragment.arguments = bundle
+                campReviewFragment.addReviews(campItem.reviews)
+                campReviewFragment.getData()
             }
         )
 
@@ -59,7 +65,7 @@ class CampDetailActivity :
         supportFragmentManager.beginTransaction().add(R.id.container_detail, campReviewFragment)
             .commit()
 
-        tl_tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        binding.containerTabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
             lateinit var selectedFragment: Fragment
             override fun onTabReselected(tab: TabLayout.Tab?) {
