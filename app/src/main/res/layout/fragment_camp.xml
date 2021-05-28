@@ -100,7 +100,7 @@
                     app:srcCompat="@drawable/ic_baseline_search_24" />
 
                 <TextView
-                    style="@style/medium_basic_16sp"
+                    style="@style/regular_basic_16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
