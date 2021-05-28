@@ -1,24 +1,18 @@
 package com.example.campwith.presentation.campdetail.view
 
-import android.content.Intent
+import android.animation.Animator
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
 import com.example.campwith.data.camp.response.CampDetailResponse
-import com.example.campwith.data.camp.response.ReviewResponseItem
 import com.example.campwith.databinding.ActivityCampDetailBinding
 import com.example.campwith.presentation.base.BaseActivity
 import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.activity_camp_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CampDetailActivity :
@@ -52,6 +46,23 @@ class CampDetailActivity :
                 campReviewFragment.getData()
             }
         )
+
+        binding.ivBookmark.setOnClickListener {
+            binding.ivBookmark.setImageResource(R.drawable.ic_heart_2)
+            binding.lottieBookmark.run {
+                bringToFront()
+                playAnimation()
+                addAnimatorListener(object : Animator.AnimatorListener {
+                    override fun onAnimationStart(animation: Animator?) {}
+                    override fun onAnimationEnd(animation: Animator?) {
+                        setVisibility(View.GONE)
+                    }
+
+                    override fun onAnimationCancel(animation: Animator?) {}
+                    override fun onAnimationRepeat(animation: Animator?) {}
+                })
+            }
+        }
 
         this.runOnUiThread {
             binding.toolbarActivityCampDetail.run {
