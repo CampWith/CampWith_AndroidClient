@@ -3,7 +3,11 @@ package com.example.campwith.presentation.camptip.view
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.Surface
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.ui.graphics.Color
 import com.example.campwith.presentation.camptip.viewmodel.CampToolViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,7 +21,22 @@ class CampToolActivity : ComponentActivity() {
             {
                 setContent {
                     Surface {
-                        CampToolScreen(campTools = it)
+                        Column() {
+                            TopAppBar(
+                                title = { Text(text = "") },
+                                backgroundColor = Color.White,
+                                navigationIcon = {
+                                    IconButton(onClick = { finish() }) {
+                                        Icon(
+                                            Icons.Filled.Close,
+                                            contentDescription = null,
+                                            tint = Color.Black,
+                                        )
+                                    }
+                                }
+                            )
+                            CampToolScreen(campTools = it)
+                        }
                     }
                 }
             }
