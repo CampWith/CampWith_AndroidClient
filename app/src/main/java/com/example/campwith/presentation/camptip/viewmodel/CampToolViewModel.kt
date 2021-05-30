@@ -3,7 +3,9 @@ package com.example.campwith.presentation.camptip.viewmodel
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.campwith.data.camp.response.CampToolResponse
+import com.example.campwith.data.camptool.model.CampToolModel
+import com.example.campwith.data.camptool.response.CampToolResponse
+import com.example.campwith.data.camptool.response.toModel
 import com.example.campwith.presentation.base.BaseViewModel
 import com.example.campwith.remote.RemoteDataSourceImpl
 import com.example.campwith.util.applySchedulers
@@ -11,8 +13,8 @@ import com.example.campwith.util.applySchedulers
 class CampToolViewModel : BaseViewModel() {
 
     private val remoteDataSourceImpl = RemoteDataSourceImpl()
-    private val _campToolLiveData = MutableLiveData<CampToolResponse>()
-    val campToolLiveData: LiveData<CampToolResponse>
+    private val _campToolLiveData = MutableLiveData<List<CampToolModel>>()
+    val campToolLiveData: LiveData<List<CampToolModel>>
         get() = _campToolLiveData
 
     fun getCampTool() {
@@ -21,7 +23,7 @@ class CampToolViewModel : BaseViewModel() {
                 .applySchedulers()
                 .subscribe(
                     {
-                        _campToolLiveData.value = it
+                        _campToolLiveData.value = it.map { response -> response.toModel() }
                         Log.d("test1", it.toString())
                     }, {
                         Log.d("test2", it.toString())
