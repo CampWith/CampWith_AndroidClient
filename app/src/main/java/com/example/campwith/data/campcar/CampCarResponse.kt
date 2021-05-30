@@ -1,3 +1,3 @@
-package com.example.campwith.data.camp.response
+package com.example.campwith.data.campcar
 
 class CampCarResponse : ArrayList<CampCarResponseItem>()

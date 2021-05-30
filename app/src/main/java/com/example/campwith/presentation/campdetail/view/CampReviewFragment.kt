@@ -9,7 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import com.example.campwith.R
 import com.example.campwith.data.camp.response.CampDetailResponse
-import com.example.campwith.data.camp.response.ReviewResponseItem
+import com.example.campwith.data.review.response.ReviewResponseItem
 import com.example.campwith.databinding.FragmentCampReviewBinding
 import com.example.campwith.presentation.base.BaseFragment
 import com.example.campwith.presentation.campdetail.adapter.CampReviewAdapter

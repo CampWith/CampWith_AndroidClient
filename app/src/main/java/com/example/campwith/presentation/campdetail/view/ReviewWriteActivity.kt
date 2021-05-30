@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.example.campwith.R
-import com.example.campwith.data.camp.response.ReviewResponseItem
+import com.example.campwith.data.review.response.ReviewResponseItem
 import com.example.campwith.databinding.ActivityReviewWriteBinding
 import com.example.campwith.presentation.base.BaseActivity
 import com.example.campwith.presentation.campdetail.viewmodel.CampReviewWriteViewModel

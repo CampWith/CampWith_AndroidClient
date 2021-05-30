@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campwith.R
-import com.example.campwith.data.camp.model.BannerItem
+import com.example.campwith.data.banner.model.BannerModel
 import com.example.campwith.presentation.camp.view.Interaction
 import kotlinx.android.synthetic.main.item_banner.view.*
 
@@ -15,7 +15,7 @@ class ViewPagerAdapter(private val interaction: Interaction) :
         const val ITEM_COUNT = 2
     }
 
-    private var bannerItemList: List<BannerItem>? = null
+    private var bannerItemList: List<BannerModel>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return BannerViewHolder(
@@ -34,7 +34,7 @@ class ViewPagerAdapter(private val interaction: Interaction) :
         }
     }
 
-    fun submitList(list: List<BannerItem>?) {
+    fun submitList(list: List<BannerModel>?) {
         bannerItemList = list
         notifyDataSetChanged()
     }
@@ -42,7 +42,7 @@ class ViewPagerAdapter(private val interaction: Interaction) :
     class BannerViewHolder
     constructor(itemView: View, private val interaction: Interaction) :
         RecyclerView.ViewHolder(itemView) {
-        fun bind(bannerItem: BannerItem) {
+        fun bind(bannerItem: BannerModel) {
             itemView.setOnClickListener {
                 interaction.onBannerItemClicked(bannerItem)
             }

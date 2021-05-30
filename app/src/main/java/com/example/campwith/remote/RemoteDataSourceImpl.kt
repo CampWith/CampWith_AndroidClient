@@ -1,7 +1,7 @@
 package com.example.campwith.remote
 
-import com.example.campwith.data.camp.response.CampCarResponse
-import com.example.campwith.data.camp.response.CampToolResponse
+import com.example.campwith.data.campcar.CampCarResponse
+import com.example.campwith.data.camptool.response.CampToolResponse
 import com.example.campwith.remote.NetworkHelper.api
 import io.reactivex.Single
 

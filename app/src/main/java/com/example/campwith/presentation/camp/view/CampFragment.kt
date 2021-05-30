@@ -14,7 +14,7 @@ import com.example.campwith.CampTypeConstant.CARAVEN_TYPE
 import com.example.campwith.CampTypeConstant.GLAMPING_TYPE
 import com.example.campwith.CampTypeConstant.NORMAL_TYPE
 import com.example.campwith.R
-import com.example.campwith.data.camp.model.BannerItem
+import com.example.campwith.data.banner.model.BannerModel
 import com.example.campwith.data.camp.response.CampResponse
 import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.databinding.FragmentCampBinding
@@ -74,8 +74,8 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
 
         viewModel.setBannerItems(
             listOf(
-                BannerItem(R.drawable.banner1),
-                BannerItem(R.drawable.banner2)
+                BannerModel(R.drawable.banner1),
+                BannerModel(R.drawable.banner2)
             )
         )
 
@@ -173,7 +173,7 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
         isRunning = true
     }
 
-    override fun onBannerItemClicked(bannerItem: BannerItem) {
+    override fun onBannerItemClicked(bannerItem: BannerModel) {
         when (bannerItem.image) {
             R.drawable.banner2 -> {
                 val intent = Intent(currentActivity, CampToolActivity::class.java)

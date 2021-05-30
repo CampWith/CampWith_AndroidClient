@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campwith.R
-import com.example.campwith.data.camp.response.ReviewResponseItem
+import com.example.campwith.data.review.response.ReviewResponseItem
 import com.example.campwith.databinding.ItemCampReviewBinding
 
 class CampReviewAdapter : RecyclerView.Adapter<CampReviewAdapter.Holder>() {

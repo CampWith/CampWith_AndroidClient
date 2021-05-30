@@ -5,7 +5,7 @@
 
         <variable
             name="ItemReview"
-            type="com.example.campwith.data.camp.response.ReviewResponseItem" />
+            type="com.example.campwith.data.review.response.ReviewResponseItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

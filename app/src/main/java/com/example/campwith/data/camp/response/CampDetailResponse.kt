@@ -2,6 +2,7 @@ package com.example.campwith.data.camp.response
 
 import android.annotation.SuppressLint
 import android.os.Parcelable
+import com.example.campwith.data.review.response.ReviewResponseItem
 import kotlinx.android.parcel.Parcelize
 
 @SuppressLint("ParcelCreator")
