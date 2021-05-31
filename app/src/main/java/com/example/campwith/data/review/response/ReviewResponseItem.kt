@@ -10,5 +10,6 @@ data class ReviewResponseItem(
     val comment: String,
     val rating: Float,
     val time: String,
-    val user: String
+    val user: String,
+    val uid: Int
 ) : Parcelable

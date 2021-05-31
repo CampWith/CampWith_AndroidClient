@@ -72,7 +72,8 @@ class ReviewWriteActivity :
                                     binding.editTextReview.text.toString(),
                                     binding.ratingBarReviewWrite.rating,
                                     "2099.99.99",
-                                    "테스트"
+                                    "테스트",
+                                    1
                                 ),
                         POSITION to position
                     )
