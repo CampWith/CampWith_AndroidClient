@@ -11,7 +11,8 @@ import com.example.campwith.databinding.ItemCampReviewBinding
 class CampReviewAdapter : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
 
     private var reviewList = mutableListOf<ReviewResponseItem>()
-    var onClick: ((ReviewResponseItem, Int) -> Unit)? = null
+    var onModifyClick: ((ReviewResponseItem, Int) -> Unit)? = null
+    var onDeleteClick: ((Int) -> Unit)? = null
 
     fun addAll(newReviewList: List<ReviewResponseItem>) {
         reviewList.clear()
@@ -29,12 +30,20 @@ class CampReviewAdapter : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
         notifyItemChanged(position)
     }
 
+    fun deleteOne(position: Int) {
+        reviewList.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
     inner class Holder(private val binding: ItemCampReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(reviewItem: ReviewResponseItem) {
             binding.itemReview = reviewItem
             binding.tvModify.setOnClickListener {
-                onClick?.invoke(reviewItem, bindingAdapterPosition)
+                onModifyClick?.invoke(reviewItem, bindingAdapterPosition)
+            }
+            binding.tvRemove.setOnClickListener {
+                onDeleteClick?.invoke(bindingAdapterPosition)
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.example.campwith.presentation.campdetail.view
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -16,6 +17,8 @@ import com.example.campwith.presentation.campdetail.adapter.CampReviewAdapter
 import com.example.campwith.presentation.campdetail.viewmodel.CampReviewViewModel
 import kotlinx.android.synthetic.main.fragment_camp_review.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import androidx.core.content.ContextCompat
+
 
 private const val ARG_PARAM = "campItem"
 
@@ -48,7 +51,7 @@ class CampReviewFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        campReviewAdapter.onClick = { review, position ->
+        campReviewAdapter.onModifyClick = { review, position ->
             val intent = Intent(currentActivity, ReviewWriteActivity::class.java)
             intent.putExtras(
                 bundleOf(
@@ -61,6 +64,24 @@ class CampReviewFragment :
             )
             requestActivity.launch(intent)
         }
+
+        campReviewAdapter.onDeleteClick = { position ->
+            val builder: AlertDialog.Builder = AlertDialog.Builder(
+                currentActivity,
+                android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth
+            )
+            val dialog: AlertDialog = builder.setMessage("리뷰를 삭제할까요?")
+                .setNegativeButton("취소") { textId, listener -> }
+                .setPositiveButton("확인") { textId, listener ->
+                    deleteReview(position)
+                }.create()
+            dialog.show()
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                .setTextColor(ContextCompat.getColor(currentActivity, R.color.red))
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+                .setTextColor(ContextCompat.getColor(currentActivity, R.color.gray))
+        }
+
         rv_camp_review_list.adapter = campReviewAdapter
 
         binding.containerReviewWrite.setOnClickListener {
@@ -94,6 +115,10 @@ class CampReviewFragment :
 
     private fun modifyReview(review: ReviewResponseItem, position: Int) {
         campReviewAdapter.modifyOne(review, position)
+    }
+
+    private fun deleteReview(position: Int) {
+        campReviewAdapter.deleteOne(position)
     }
 
     companion object {
