@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.camptip.view
+package com.example.campwith.presentation.camptool.view
 
 import androidx.compose.animation.*
 import androidx.compose.foundation.Image
