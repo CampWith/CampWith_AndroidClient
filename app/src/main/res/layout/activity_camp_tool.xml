@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.camptip.view.CampToolActivity">
+        tools:context=".presentation.camptool.view.CampToolActivity">
 
         <com.example.campwith.presentation.custom.CustomToolbar
             android:id="@+id/toolbar_activity_camp_tool"

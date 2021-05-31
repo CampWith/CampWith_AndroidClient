@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.camptip.view
+package com.example.campwith.presentation.camptool.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,7 +9,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.ui.graphics.Color
-import com.example.campwith.presentation.camptip.viewmodel.CampToolViewModel
+import com.example.campwith.presentation.camptip.view.CampToolScreen
+import com.example.campwith.presentation.camptool.viewmodel.CampToolViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CampToolActivity : ComponentActivity() {

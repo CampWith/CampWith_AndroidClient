@@ -8,6 +8,7 @@ import com.example.campwith.R
 import com.example.campwith.databinding.FragmentCampTipBinding
 import com.example.campwith.presentation.base.BaseFragment
 import com.example.campwith.presentation.camptip.viewmodel.CampTipViewModel
+import com.example.campwith.presentation.camptool.view.CampToolActivity
 import com.example.campwith.presentation.main.view.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

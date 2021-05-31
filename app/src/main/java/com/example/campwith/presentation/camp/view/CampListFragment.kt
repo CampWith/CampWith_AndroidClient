@@ -3,7 +3,6 @@ package com.example.campwith.presentation.camp.view
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
 import com.example.campwith.databinding.FragmentCampListBinding
@@ -11,7 +10,6 @@ import com.example.campwith.presentation.base.BaseFragment
 import com.example.campwith.presentation.camp.adapter.CampListAdapter
 import com.example.campwith.presentation.camp.viewmodel.CampListViewModel
 import com.example.campwith.presentation.main.view.MainActivity
-import kotlinx.android.synthetic.main.fragment_camp_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CampListFragment :
@@ -45,12 +43,12 @@ class CampListFragment :
                     setCancleBtnVisible(false)
                     setLogoVisible(false)
                     setTitle(region!!)
-                    setBackBtnClick(View.OnClickListener {
+                    setBackBtnClick {
                         currentActivity.replaceFragment(
                             null,
                             null
                         )
-                    })
+                    }
                 }
             }
         } else if (type != null) {
@@ -75,7 +73,7 @@ class CampListFragment :
         binding.rvCampList.adapter = campListAdapter
 
         viewModel.campListLiveData.observe(viewLifecycleOwner,
-            Observer {
+            {
                 campListAdapter.addAll(it)
             })
     }

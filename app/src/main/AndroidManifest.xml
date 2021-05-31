@@ -22,7 +22,7 @@
         </activity>
         <activity android:name="com.example.campwith.presentation.login.LoginActivity" />
         <activity android:name=".presentation.reviewwrite.view.ReviewWriteActivity" />
-        <activity android:name=".presentation.camptip.view.CampToolActivity" />
+        <activity android:name=".presentation.camptool.view.CampToolActivity" />
         <activity android:name=".presentation.campdetail.view.CampDetailActivity" />
         <activity android:name=".presentation.main.view.MainActivity" />
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">

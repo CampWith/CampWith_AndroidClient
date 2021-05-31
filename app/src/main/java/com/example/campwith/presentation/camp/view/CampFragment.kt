@@ -22,7 +22,7 @@ import com.example.campwith.presentation.base.BaseFragment
 import com.example.campwith.presentation.camp.adapter.RecommendCampAdapter
 import com.example.campwith.presentation.camp.adapter.ViewPagerAdapter
 import com.example.campwith.presentation.camp.viewmodel.CampViewModel
-import com.example.campwith.presentation.camptip.view.CampToolActivity
+import com.example.campwith.presentation.camptool.view.CampToolActivity
 import com.example.campwith.presentation.main.view.CityDialogFragment
 import com.example.campwith.presentation.main.view.MainActivity
 import kotlinx.android.synthetic.main.fragment_camp.*

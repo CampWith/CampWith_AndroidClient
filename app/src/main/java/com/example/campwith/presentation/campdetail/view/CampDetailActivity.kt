@@ -31,7 +31,7 @@ class CampDetailActivity :
         viewModel.getCampDetail(id)
         viewModel.campDetailLiveData.observe(
             this,
-             {
+            {
                 campItem = it
                 binding.itemCamp = campItem
                 binding.tvCampType.text = getTypeName(campItem.category)
@@ -55,7 +55,7 @@ class CampDetailActivity :
                 addAnimatorListener(object : Animator.AnimatorListener {
                     override fun onAnimationStart(animation: Animator?) {}
                     override fun onAnimationEnd(animation: Animator?) {
-                        setVisibility(View.GONE)
+                        visibility = View.GONE
                     }
 
                     override fun onAnimationCancel(animation: Animator?) {}
@@ -69,7 +69,7 @@ class CampDetailActivity :
                 setBackBtnVisible(true)
                 setCancleBtnVisible(false)
                 setLogoVisible(false)
-                setBackBtnClick(View.OnClickListener { finish() })
+                setBackBtnClick { finish() }
             }
         }
 

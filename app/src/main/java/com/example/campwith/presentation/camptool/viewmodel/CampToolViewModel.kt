@@ -1,10 +1,9 @@
-package com.example.campwith.presentation.camptip.viewmodel
+package com.example.campwith.presentation.camptool.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.campwith.data.camptool.model.CampToolModel
-import com.example.campwith.data.camptool.response.CampToolResponse
 import com.example.campwith.data.camptool.response.toModel
 import com.example.campwith.presentation.base.BaseViewModel
 import com.example.campwith.remote.RemoteDataSourceImpl
