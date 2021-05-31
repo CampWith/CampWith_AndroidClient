@@ -31,7 +31,7 @@ class CampDetailActivity :
         viewModel.getCampDetail(id)
         viewModel.campDetailLiveData.observe(
             this,
-            Observer {
+             {
                 campItem = it
                 binding.itemCamp = campItem
                 binding.tvCampType.text = getTypeName(campItem.category)

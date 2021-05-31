@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.campdetail.viewmodel
+package com.example.campwith.presentation.reviewwrite.viewmodel
 
 import com.example.campwith.presentation.base.BaseViewModel
 

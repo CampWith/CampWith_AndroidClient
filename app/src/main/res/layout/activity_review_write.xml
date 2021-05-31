@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".presentation.campdetail.view.ReviewWriteActivity">
+        tools:context=".presentation.reviewwrite.view.ReviewWriteActivity">
 
         <com.example.campwith.presentation.custom.CustomToolbar
             android:id="@+id/toolbar_activity_camp_review_write"

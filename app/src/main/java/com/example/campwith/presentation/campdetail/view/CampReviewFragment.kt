@@ -18,6 +18,7 @@ import com.example.campwith.presentation.campdetail.viewmodel.CampReviewViewMode
 import kotlinx.android.synthetic.main.fragment_camp_review.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.core.content.ContextCompat
+import com.example.campwith.presentation.reviewwrite.view.ReviewWriteActivity
 
 private const val ARG_PARAM = "campItem"
 

@@ -1,4 +1,4 @@
-package com.example.campwith.presentation.campdetail.view
+package com.example.campwith.presentation.reviewwrite.view
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -17,7 +17,7 @@ import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Comp
 import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.POSITION
 import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.REVIEW
 import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.TYPE
-import com.example.campwith.presentation.campdetail.viewmodel.CampReviewWriteViewModel
+import com.example.campwith.presentation.reviewwrite.viewmodel.CampReviewWriteViewModel
 import kotlinx.android.synthetic.main.activity_review_write.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
