@@ -11,6 +11,12 @@ import com.example.campwith.R
 import com.example.campwith.data.review.response.ReviewResponseItem
 import com.example.campwith.databinding.ActivityReviewWriteBinding
 import com.example.campwith.presentation.base.BaseActivity
+import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.CAMP_ID
+import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.CAMP_NM
+import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.MODIFY
+import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.POSITION
+import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.REVIEW
+import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.TYPE
 import com.example.campwith.presentation.campdetail.viewmodel.CampReviewWriteViewModel
 import kotlinx.android.synthetic.main.activity_review_write.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,11 +29,11 @@ class ReviewWriteActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val type = intent.getStringExtra("type")
-        val campId = intent.getStringExtra("campId")
-        val campNm = intent.getStringExtra("campNm")
-        val review: ReviewResponseItem? = intent.getParcelableExtra("review")
-        val position: Int = intent.getIntExtra("position", -1)
+        val type = intent.getStringExtra(TYPE)
+        val campId = intent.getStringExtra(CAMP_ID)
+        val campNm = intent.getStringExtra(CAMP_NM)
+        val review: ReviewResponseItem? = intent.getParcelableExtra(REVIEW)
+        val position: Int = intent.getIntExtra(POSITION, -1)
 
         when (type) {
             MODIFY -> {
@@ -60,15 +66,15 @@ class ReviewWriteActivity :
             val result = Intent().apply {
                 putExtras(
                     bundleOf(
-                        "type" to type,
-                        "review" to
+                        TYPE to type,
+                        REVIEW to
                                 ReviewResponseItem(
                                     binding.editTextReview.text.toString(),
                                     binding.ratingBarReviewWrite.rating,
                                     "2099.99.99",
                                     "테스트"
                                 ),
-                        "position" to position
+                        POSITION to position
                     )
                 )
             }
@@ -84,10 +90,5 @@ class ReviewWriteActivity :
             this.currentFocus!!.windowToken,
             InputMethodManager.HIDE_NOT_ALWAYS
         )
-    }
-
-    companion object {
-        const val MODIFY = "MODIFY"
-        const val ADD = "ADD"
     }
 }

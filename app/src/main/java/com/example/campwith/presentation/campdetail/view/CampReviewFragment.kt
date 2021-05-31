@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_camp_review.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.core.content.ContextCompat
 
-
 private const val ARG_PARAM = "campItem"
 
 class CampReviewFragment :
@@ -31,14 +30,14 @@ class CampReviewFragment :
     private val requestActivity: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult() // StartActivityForResult 처리를 담당
     ) { activityResult ->
-        val type = activityResult.data?.getStringExtra("type")
-        val review = activityResult.data?.getParcelableExtra<ReviewResponseItem>("review")
-        val position = activityResult.data?.getIntExtra("position", -1)
+        val type = activityResult.data?.getStringExtra(TYPE)
+        val review = activityResult.data?.getParcelableExtra<ReviewResponseItem>(REVIEW)
+        val position = activityResult.data?.getIntExtra(POSITION, -1)
 
         if (review != null) {
             when (type) {
-                MODIFY -> position?.let { modifyReview(review, it) }
                 ADD -> addReview(review)
+                MODIFY -> position?.let { modifyReview(review, it) }
             }
         }
     }
@@ -51,15 +50,29 @@ class CampReviewFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.containerReviewWrite.setOnClickListener {
+            val intent = Intent(currentActivity, ReviewWriteActivity::class.java)
+            intent.putExtras(
+                bundleOf(
+                    TYPE to ADD,
+                    CAMP_ID to campItem?._id,
+                    CAMP_NM to campItem?.facltNm,
+                    REVIEW to null,
+                    POSITION to null
+                )
+            )
+            requestActivity.launch(intent)
+        }
+
         campReviewAdapter.onModifyClick = { review, position ->
             val intent = Intent(currentActivity, ReviewWriteActivity::class.java)
             intent.putExtras(
                 bundleOf(
-                    "type" to MODIFY,
-                    "campId" to campItem?._id,
-                    "campNm" to campItem?.facltNm,
-                    "review" to review,
-                    "position" to position
+                    TYPE to MODIFY,
+                    CAMP_ID to campItem?._id,
+                    CAMP_NM to campItem?.facltNm,
+                    REVIEW to review,
+                    POSITION to position
                 )
             )
             requestActivity.launch(intent)
@@ -83,20 +96,6 @@ class CampReviewFragment :
         }
 
         rv_camp_review_list.adapter = campReviewAdapter
-
-        binding.containerReviewWrite.setOnClickListener {
-            val intent = Intent(currentActivity, ReviewWriteActivity::class.java)
-            intent.putExtras(
-                bundleOf(
-                    "type" to ADD,
-                    "campId" to campItem?._id,
-                    "campNm" to campItem?.facltNm,
-                    "review" to null,
-                    "position" to null
-                )
-            )
-            requestActivity.launch(intent)
-        }
     }
 
     fun getData() {
@@ -122,7 +121,15 @@ class CampReviewFragment :
     }
 
     companion object {
+        const val TYPE = "TYPE"
+        const val CAMP_ID = "CAMP_ID"
+        const val CAMP_NM = "CAMP_NM"
+        const val REVIEW = "REVIEW"
+        const val POSITION = "POSITION"
+
+        // 리뷰 등록 TYPE
         const val MODIFY = "MODIFY"
         const val ADD = "ADD"
+
     }
 }
