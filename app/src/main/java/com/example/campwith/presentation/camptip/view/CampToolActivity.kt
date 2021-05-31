@@ -3,6 +3,7 @@ package com.example.campwith.presentation.camptip.view
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -14,6 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class CampToolActivity : ComponentActivity() {
     private val viewModel: CampToolViewModel by viewModel()
 
+    @ExperimentalAnimationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getCampTool()
