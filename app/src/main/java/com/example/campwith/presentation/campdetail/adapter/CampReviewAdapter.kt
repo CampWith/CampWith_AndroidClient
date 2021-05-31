@@ -11,6 +11,7 @@ import com.example.campwith.databinding.ItemCampReviewBinding
 class CampReviewAdapter : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
 
     private var reviewList = mutableListOf<ReviewResponseItem>()
+    var onClick: ((ReviewResponseItem, Int) -> Unit)? = null
 
     fun addAll(newReviewList: List<ReviewResponseItem>) {
         reviewList.clear()
@@ -23,10 +24,18 @@ class CampReviewAdapter : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
         notifyItemInserted(0)
     }
 
+    fun modifyOne(review: ReviewResponseItem, position: Int) {
+        reviewList[position] = review
+        notifyItemChanged(position)
+    }
+
     inner class Holder(private val binding: ItemCampReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(reviewItem: ReviewResponseItem) {
             binding.itemReview = reviewItem
+            binding.tvModify.setOnClickListener {
+                onClick?.invoke(reviewItem, bindingAdapterPosition)
+            }
         }
     }
 

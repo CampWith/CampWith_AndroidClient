@@ -28,9 +28,15 @@ class CampReviewFragment :
     private val requestActivity: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult() // StartActivityForResult 처리를 담당
     ) { activityResult ->
-        val review = activityResult.data?.getParcelableExtra<ReviewResponseItem>("Review")
+        val type = activityResult.data?.getStringExtra("type")
+        val review = activityResult.data?.getParcelableExtra<ReviewResponseItem>("review")
+        val position = activityResult.data?.getIntExtra("position", -1)
+
         if (review != null) {
-            addReview(review)
+            when (type) {
+                MODIFY -> position?.let { modifyReview(review, it) }
+                ADD -> addReview(review)
+            }
         }
     }
 
@@ -42,10 +48,32 @@ class CampReviewFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        campReviewAdapter.onClick = { review, position ->
+            val intent = Intent(currentActivity, ReviewWriteActivity::class.java)
+            intent.putExtras(
+                bundleOf(
+                    "type" to MODIFY,
+                    "campId" to campItem?._id,
+                    "campNm" to campItem?.facltNm,
+                    "review" to review,
+                    "position" to position
+                )
+            )
+            requestActivity.launch(intent)
+        }
         rv_camp_review_list.adapter = campReviewAdapter
+
         binding.containerReviewWrite.setOnClickListener {
             val intent = Intent(currentActivity, ReviewWriteActivity::class.java)
-            intent.putExtras(bundleOf("campId" to campItem?._id, "campNm" to campItem?.facltNm))
+            intent.putExtras(
+                bundleOf(
+                    "type" to ADD,
+                    "campId" to campItem?._id,
+                    "campNm" to campItem?.facltNm,
+                    "review" to null,
+                    "position" to null
+                )
+            )
             requestActivity.launch(intent)
         }
     }
@@ -60,7 +88,16 @@ class CampReviewFragment :
         campReviewAdapter.addAll(reviews)
     }
 
-    fun addReview(review: ReviewResponseItem) {
+    private fun addReview(review: ReviewResponseItem) {
         campReviewAdapter.addOne(review)
+    }
+
+    private fun modifyReview(review: ReviewResponseItem, position: Int) {
+        campReviewAdapter.modifyOne(review, position)
+    }
+
+    companion object {
+        const val MODIFY = "MODIFY"
+        const val ADD = "ADD"
     }
 }

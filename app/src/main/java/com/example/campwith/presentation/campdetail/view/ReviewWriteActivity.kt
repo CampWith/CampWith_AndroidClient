@@ -5,8 +5,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.core.os.bundleOf
 import com.example.campwith.R
 import com.example.campwith.data.review.response.ReviewResponseItem
 import com.example.campwith.databinding.ActivityReviewWriteBinding
@@ -23,8 +23,18 @@ class ReviewWriteActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val type = intent.getStringExtra("type")
         val campId = intent.getStringExtra("campId")
         val campNm = intent.getStringExtra("campNm")
+        val review: ReviewResponseItem? = intent.getParcelableExtra("review")
+        val position: Int = intent.getIntExtra("position", -1)
+
+        when (type) {
+            MODIFY -> {
+                binding.ratingBarReviewWrite.rating = review?.rating!!
+                binding.editTextReview.setText(review.comment)
+            }
+        }
 
         binding.tvNm.text = campNm
 
@@ -42,19 +52,23 @@ class ReviewWriteActivity :
                 setBackBtnVisible(false)
                 setCancleBtnVisible(true)
                 setLogoVisible(false)
-                setCancleBtnClick(View.OnClickListener { finish() })
+                setCancleBtnClick { finish() }
             }
         }
 
         binding.tvReviewRegister.setOnClickListener {
             val result = Intent().apply {
-                putExtra(
-                    "Review",
-                    ReviewResponseItem(
-                        binding.editTextReview.text.toString(),
-                        binding.ratingBarReviewWrite.rating,
-                        "2099.99.99",
-                        "테스트"
+                putExtras(
+                    bundleOf(
+                        "type" to type,
+                        "review" to
+                                ReviewResponseItem(
+                                    binding.editTextReview.text.toString(),
+                                    binding.ratingBarReviewWrite.rating,
+                                    "2099.99.99",
+                                    "테스트"
+                                ),
+                        "position" to position
                     )
                 )
             }
@@ -70,5 +84,10 @@ class ReviewWriteActivity :
             this.currentFocus!!.windowToken,
             InputMethodManager.HIDE_NOT_ALWAYS
         )
+    }
+
+    companion object {
+        const val MODIFY = "MODIFY"
+        const val ADD = "ADD"
     }
 }
