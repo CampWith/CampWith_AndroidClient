@@ -1,6 +1,7 @@
 package com.example.campwith.remote
 
 import android.util.Log
+import com.example.campwith.User
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,8 +17,13 @@ object NetworkHelper {
             level = HttpLoggingInterceptor.Level.NONE
         })
         .addInterceptor {
+            val request = it.request()
+                .newBuilder()
+                .addHeader("x-auth-token", User.token)
+                .build()
             Log.d("okhttp", it.request().toString())
-            it.proceed(it.request())
+            val response = it.proceed(request)
+            response
         }.build()
 
     private val gson = GsonBuilder().setLenient().create()
