@@ -44,7 +44,7 @@ class CampCarListFragment :
         viewModel.campCarListLiveData.observe(
             viewLifecycleOwner,
             {
-                campCarListAdapter.addAll(it)
+                campCarListAdapter.addAll(it.result.campingCarList)
             })
     }
 }

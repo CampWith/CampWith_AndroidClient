@@ -9,7 +9,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import com.example.campwith.R
-import com.example.campwith.data.camp.response.CampDetailResponse
 import com.example.campwith.data.review.response.ReviewResponseItem
 import com.example.campwith.databinding.FragmentCampReviewBinding
 import com.example.campwith.presentation.base.BaseFragment
@@ -18,6 +17,7 @@ import com.example.campwith.presentation.campdetail.viewmodel.CampReviewViewMode
 import kotlinx.android.synthetic.main.fragment_camp_review.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.core.content.ContextCompat
+import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.presentation.reviewwrite.view.ReviewWriteActivity
 
 private const val ARG_PARAM = "campItem"
@@ -25,7 +25,7 @@ private const val ARG_PARAM = "campItem"
 class CampReviewFragment :
     BaseFragment<FragmentCampReviewBinding, CampReviewViewModel>(R.layout.fragment_camp_review) {
     override val viewModel: CampReviewViewModel by viewModel()
-    private var campItem: CampDetailResponse? = null
+    private var campItem: CampResponseItem? = null
     private val campReviewAdapter = CampReviewAdapter()
     private lateinit var currentActivity: CampDetailActivity
     private val requestActivity: ActivityResultLauncher<Intent> = registerForActivityResult(

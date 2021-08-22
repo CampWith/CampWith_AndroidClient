@@ -9,17 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
-import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.data.camp.response.CampResponse
+import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.databinding.ItemCampBinding
 import com.example.campwith.presentation.campdetail.view.CampDetailActivity
 
 class CampListAdapter(val context: Context) : RecyclerView.Adapter<CampListAdapter.Holder>() {
 
-    private var campList = CampResponse()
+    private var campList = mutableListOf<CampResponseItem>()
 
-    fun addAll(newCampList: CampResponse) {
-        campList.clear()
+    fun addAll(newCampList: List<CampResponseItem>) {
+        //campList.clear()
+        //campList.add
         campList.addAll(newCampList)
         notifyDataSetChanged()
     }

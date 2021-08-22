@@ -1,3 +1,11 @@
 package com.example.campwith.data.campcar
 
-class CampCarResponse : ArrayList<CampCarResponseItem>()
+data class CampCarResponse(
+    val success: Boolean,
+    val status: Int,
+    val result: Result
+) {
+    data class Result(
+        val campingCarList: List<CampCarResponseItem>
+    )
+}

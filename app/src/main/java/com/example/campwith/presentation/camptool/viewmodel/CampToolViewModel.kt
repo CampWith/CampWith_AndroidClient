@@ -22,7 +22,8 @@ class CampToolViewModel : BaseViewModel() {
                 .applySchedulers()
                 .subscribe(
                     {
-                        _campToolLiveData.value = it.map { response -> response.toModel() }
+                        _campToolLiveData.value =
+                            it.result.campingtoolList.map { response -> response.toModel() }
                         Log.d("test1", it.toString())
                     }, {
                         Log.d("test2", it.toString())

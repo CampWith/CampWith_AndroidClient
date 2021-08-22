@@ -4,11 +4,11 @@ import android.animation.Animator
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
 import com.example.campwith.data.camp.response.CampDetailResponse
+import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.databinding.ActivityCampDetailBinding
 import com.example.campwith.presentation.base.BaseActivity
 import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel
@@ -19,7 +19,7 @@ class CampDetailActivity :
     BaseActivity<ActivityCampDetailBinding, CampDetailViewModel>(R.layout.activity_camp_detail) {
     override val viewModel: CampDetailViewModel by viewModel()
     lateinit var id: String
-    lateinit var campItem: CampDetailResponse
+    lateinit var campItem: CampResponseItem
     val campReviewFragment = CampReviewFragment()
     val campMapFragment = CampMapFragment()
 
@@ -32,7 +32,7 @@ class CampDetailActivity :
         viewModel.campDetailLiveData.observe(
             this,
             {
-                campItem = it
+                campItem = it.result.campsite
                 binding.itemCamp = campItem
                 binding.tvCampType.text = getTypeName(campItem.category)
                 Glide.with(this)
@@ -42,7 +42,7 @@ class CampDetailActivity :
                 bundle.putParcelable("campItem", campItem)
                 campMapFragment.arguments = bundle
                 campReviewFragment.arguments = bundle
-                campReviewFragment.addReviews(campItem.reviews)
+                campReviewFragment.addReviews(it.result.reviews)
                 campReviewFragment.getData()
             }
         )

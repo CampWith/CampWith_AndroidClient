@@ -45,24 +45,24 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tmpCampItem = CampResponseItem(
-            _id = "608a67aef18aa9453cb5da18",
-            addr1 = "경북 김천시 농소면 벽봉로 1651",
-            doNm = "경상북도",
-            facltNm = "이화만리캠핑장",
-            firstImageUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDExMjdfNjMg%2FMDAxNjA2NDg0OTY0Mjgy.g8pqLTGlEw_kNqgMVpwJR8CD61Qvw51vInsMOKaW3o0g.pZK6nHcacwoEo6evkxG21o1xM44lDS1UMWd5FHMfzCUg.JPEG.kokoadhs%2F20201121_175547.jpg&type=sc960_832",
-            category = 1,
-            mean_rate = 2.0F
-        )
+//        val tmpCampItem = CampResponseItem(
+//            _id = "608a67aef18aa9453cb5da18",
+//            addr1 = "경북 김천시 농소면 벽봉로 1651",
+//            doNm = "경상북도",
+//            facltNm = "이화만리캠핑장",
+//            firstImageUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDExMjdfNjMg%2FMDAxNjA2NDg0OTY0Mjgy.g8pqLTGlEw_kNqgMVpwJR8CD61Qvw51vInsMOKaW3o0g.pZK6nHcacwoEo6evkxG21o1xM44lDS1UMWd5FHMfzCUg.JPEG.kokoadhs%2F20201121_175547.jpg&type=sc960_832",
+//            category = 1,
+//            meanRate = 2.0F
+//        )
 
-        val tmpData = CampResponse()
-        for (i in 1..5) {
-            tmpData.add(tmpCampItem)
-        }
+//        val tmpData = CampResponse()
+//        for (i in 1..5) {
+//            tmpData.add(tmpCampItem)
+//        }
 
         val recommendCampAdapter = RecommendCampAdapter(currentActivity)
         binding.rvRecommendCampList.adapter = recommendCampAdapter
-        recommendCampAdapter.addAll(tmpData)
+        //recommendCampAdapter.addAll(tmpData)
 
         currentActivity.runOnUiThread {
             binding.toolbarFragmentCamp.run {

@@ -1,13 +1,11 @@
 package com.example.campwith.presentation.campdetail.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.annotation.UiThread
 import com.example.campwith.R
 import com.example.campwith.data.camp.response.CampDetailResponse
+import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.databinding.FragmentCampMapBinding
 import com.example.campwith.presentation.base.BaseFragment
 import com.example.campwith.presentation.campdetail.viewmodel.CampMapViewModel
@@ -26,7 +24,7 @@ class CampMapFragment :
     BaseFragment<FragmentCampMapBinding, CampMapViewModel>(R.layout.fragment_camp_map),
     OnMapReadyCallback {
     override val viewModel: CampMapViewModel by viewModel()
-    private var campItem: CampDetailResponse? = null
+    private var campItem: CampResponseItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

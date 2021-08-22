@@ -9,19 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.campwith.CampTypeConstant
 import com.example.campwith.R
-import com.example.campwith.data.camp.response.CampResponse
 import com.example.campwith.data.camp.response.CampResponseItem
-import com.example.campwith.databinding.ItemCampBinding
 import com.example.campwith.databinding.ItemRecommendCampBinding
 import com.example.campwith.presentation.campdetail.view.CampDetailActivity
 
 class RecommendCampAdapter(val context: Context) :
     RecyclerView.Adapter<RecommendCampAdapter.Holder>() {
 
-    private var campList = CampResponse()
+    private var campList = mutableListOf<CampResponseItem>()
 
-    fun addAll(newCampList: CampResponse) {
-        campList.clear()
+    fun addAll(newCampList: List<CampResponseItem>) {
+        //campList.clear()
         campList.addAll(newCampList)
         notifyDataSetChanged()
     }

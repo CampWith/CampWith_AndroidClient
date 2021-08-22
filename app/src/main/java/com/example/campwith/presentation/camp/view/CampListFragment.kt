@@ -74,7 +74,7 @@ class CampListFragment :
 
         viewModel.campListLiveData.observe(viewLifecycleOwner,
             {
-                campListAdapter.addAll(it)
+                campListAdapter.addAll(it.result.campsiteList)
             })
     }
 

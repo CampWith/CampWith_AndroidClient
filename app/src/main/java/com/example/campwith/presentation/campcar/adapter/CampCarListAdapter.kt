@@ -13,9 +13,9 @@ import com.example.campwith.databinding.ItemCampCarBinding
 
 class CampCarListAdapter(val context: Context) : RecyclerView.Adapter<CampCarListAdapter.Holder>() {
 
-    private var campCarList = CampCarResponse()
+    private var campCarList = mutableListOf<CampCarResponseItem>()
 
-    fun addAll(newCampCarList: CampCarResponse) {
+    fun addAll(newCampCarList: List<CampCarResponseItem>) {
         campCarList.clear()
         campCarList.addAll(newCampCarList)
         notifyDataSetChanged()

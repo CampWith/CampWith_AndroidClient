@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:isIndicator="true"
                         android:numStars="1"
-                        android:rating="@{ItemCamp.mean_rate}"
+                        android:rating="@{ItemCamp.meanRate}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:text="@{String.valueOf(ItemCamp.mean_rate)}"
+                        android:text="@{String.valueOf(ItemCamp.meanRate)}"
                         android:textColor="@color/black"
                         app:layout_constraintLeft_toRightOf="@id/rating_bar_camp"
                         app:layout_constraintTop_toTopOf="parent" />

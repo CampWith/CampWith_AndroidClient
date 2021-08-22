@@ -9,6 +9,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkHelper {
+    private const val BASE_URL = "http://13.209.43.90:8080/"
 
     private val okHttpClent = OkHttpClient.Builder()
         .addInterceptor(HttpLoggingInterceptor().apply {
@@ -22,7 +23,7 @@ object NetworkHelper {
     private val gson = GsonBuilder().setLenient().create()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://13.209.43.90:8080/")
+        .baseUrl(BASE_URL)
         .client(okHttpClent)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
         .addConverterFactory(GsonConverterFactory.create(gson))

@@ -7,9 +7,13 @@ import kotlinx.android.parcel.Parcelize
 data class CampResponseItem(
     val _id: String,
     val addr1: String,
+    val category: Int,
     val doNm: String,
     val facltNm: String,
     val firstImageUrl: String,
-    val category: Int,
-    val mean_rate: Float
+    val mapX: Double,
+    val mapY: Double,
+    val meanRate: Float,
+    val sigunguNm: String,
+    val tel: String
 ) : Parcelable

@@ -7,7 +7,6 @@ import android.os.Parcelable
 @SuppressLint("ParcelCreator")
 @Parcelize
 data class CampCarResponseItem(
-    val __v: Int,
     val _id: String,
     val price: String,
     val title: String,
