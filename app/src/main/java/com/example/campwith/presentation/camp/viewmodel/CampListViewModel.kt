@@ -9,7 +9,6 @@ import com.example.campwith.remote.RemoteDataSourceImpl
 import com.example.campwith.util.applySchedulers
 
 class CampListViewModel : BaseViewModel() {
-
     private val remoteDataSourceImpl = RemoteDataSourceImpl()
     private val _campListLiveData = MutableLiveData<CampResponse>()
     val campListLiveData: LiveData<CampResponse>
@@ -22,9 +21,7 @@ class CampListViewModel : BaseViewModel() {
                 .subscribe(
                     {
                         _campListLiveData.value = it
-                        Log.d("test1", it.toString())
                     }, {
-                        Log.d("test2", it.toString())
                     }
                 )
         )
@@ -37,9 +34,7 @@ class CampListViewModel : BaseViewModel() {
                 .subscribe(
                     {
                         _campListLiveData.value = it
-                        Log.d("test1", it.toString())
                     }, {
-                        Log.d("test2", it.toString())
                     }
                 )
         )

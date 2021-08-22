@@ -53,21 +53,9 @@
                         style="@style/regular_basic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
                         android:text="/ 2"
                         android:textColor="@color/white"
                         android:textSize="11sp" />
-
-                    <TextView
-                        android:id="@+id/tv_see_all"
-                        style="@style/regular_basic"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="모두 보기"
-                        android:textColor="@color/white"
-                        android:textSize="11sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/vp_banner"
-                        app:layout_constraintEnd_toEndOf="parent" />
                 </LinearLayout>
 
 
@@ -242,15 +230,7 @@
                     style="@style/medium_basic_18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Test"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/textView4"
-                    style="@style/medium_basic_18sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="님을 위한 추천 캠핑장"
+                    android:text="회원님을 위한 추천 캠핑장"
                     android:textColor="@color/black" />
 
             </LinearLayout>
