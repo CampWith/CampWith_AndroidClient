@@ -8,6 +8,7 @@ import com.example.campwith.presentation.camp.viewmodel.CampListViewModel
 import com.example.campwith.presentation.camp.viewmodel.CampViewModel
 import com.example.campwith.presentation.camptip.viewmodel.CampTipViewModel
 import com.example.campwith.presentation.camptool.viewmodel.CampToolViewModel
+import com.example.campwith.presentation.login.viewmodel.LoginViewModel
 import com.example.campwith.presentation.main.viewmodel.CityDialogViewModel
 import com.example.campwith.presentation.main.viewmodel.MainViewModel
 import com.example.campwith.presentation.mypage.viewmodel.MyPageViewModel
@@ -17,6 +18,9 @@ import org.koin.dsl.module
 val viewModelPart = module {
     viewModel {
         MainViewModel()
+    }
+    viewModel {
+        LoginViewModel()
     }
     viewModel {
         CityDialogViewModel()

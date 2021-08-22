@@ -105,9 +105,6 @@ dependencies {
     // lifecycle
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha01'
 
-    // kakao login
-    implementation "com.kakao.sdk:v2-user:2.5.0"
-
     // lottie
     implementation "com.airbnb.android:lottie:3.7.0"
 
