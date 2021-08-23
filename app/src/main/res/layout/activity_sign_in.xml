@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="vm"
-            type="com.example.campwith.presentation.login.viewmodel.LoginViewModel" />
+            type="com.example.campwith.presentation.signin.viewmodel.SignInViewModel" />
 
         <variable
-            name="loginBody"
-            type="com.example.campwith.data.login.request.LoginRequest" />
+            name="signInBody"
+            type="com.example.campwith.data.signin.request.SignInRequest" />
     </data>
 
     <LinearLayout
@@ -20,7 +19,7 @@
         android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context=".presentation.login.view.LoginActivity">
+        tools:context=".presentation.signin.view.SignInActivity">
 
         <ImageView
             android:id="@+id/iv_login_logo"
@@ -40,7 +39,7 @@
             android:ems="10"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
-            android:text="@={loginBody.email}" />
+            android:text="@={signInBody.email}" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
@@ -50,7 +49,7 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
-            android:text="@={loginBody.password}" />
+            android:text="@={signInBody.password}" />
 
         <Button
             android:id="@+id/button"
@@ -59,8 +58,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/background_region_btn"
-            android:onClick="@{() -> vm.signIn(loginBody)}"
-            android:text="Login" />
+            android:onClick="@{() -> vm.signIn(signInBody)}"
+            android:text="Sign In" />
+
+        <TextView
+            android:id="@+id/tv_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/medium_basic_12sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textColor="@color/gray"
+            android:text="회원가입 하러가기" />
 
     </LinearLayout>
 </layout>
