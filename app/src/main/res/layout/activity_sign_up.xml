@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.campwith.presentation.signup.viewmodel.SignUpViewModel" />
+
+        <variable
+            name="signUpBody"
+            type="com.example.campwith.data.signup.request.SignUpRequest" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".presentation.signup.view.SignUpActivity">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            style="@style/medium_basic_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nickname"
+            android:inputType="textPersonName"
+            android:text="@={signUpBody.nickname}" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            style="@style/medium_basic_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:text="@={signUpBody.email}" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            style="@style/medium_basic_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:text="@={signUpBody.password}" />
+
+        <Button
+            android:id="@+id/button"
+            style="@style/medium_basic_14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_region_btn"
+            android:onClick="@{() -> vm.signUp(signUpBody)}"
+            android:text="Sing Up" />
+
+    </LinearLayout>
+</layout>

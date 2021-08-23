@@ -1,17 +1,20 @@
 package com.example.campwith.remote
 
-import com.example.campwith.data.camp.response.CampResponse
 import com.example.campwith.data.campcar.CampCarResponse
 import com.example.campwith.data.camptool.response.CampToolResponse
-import com.example.campwith.data.login.request.LoginRequest
-import com.example.campwith.data.login.response.LoginResponse
+import com.example.campwith.data.signin.request.SignInRequest
+import com.example.campwith.data.signup.request.SignUpRequest
 import com.example.campwith.remote.NetworkHelper.api
 import io.reactivex.Single
 
 class RemoteDataSourceImpl : RemoteDataSource {
     override fun signIn(
-        body: LoginRequest
+        body: SignInRequest
     ) = api.signIn(body)
+
+    override fun signUp(
+        body: SignUpRequest
+    ) = api.signUp(body)
 
     override fun getRecommendCamp() = api.getRecommendCamp()
 

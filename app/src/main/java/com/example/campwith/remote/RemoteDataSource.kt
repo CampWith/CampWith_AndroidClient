@@ -5,13 +5,18 @@ import com.example.campwith.data.camp.response.CampDetailResponse
 import com.example.campwith.data.campcar.CampCarResponse
 import com.example.campwith.data.camp.response.CampResponse
 import com.example.campwith.data.camptool.response.CampToolResponse
-import com.example.campwith.data.login.request.LoginRequest
-import com.example.campwith.data.login.response.LoginResponse
+import com.example.campwith.data.signin.request.SignInRequest
+import com.example.campwith.data.signin.response.LoginResponse
+import com.example.campwith.data.signup.request.SignUpRequest
 import io.reactivex.Single
 
 interface RemoteDataSource {
     fun signIn(
-        body: LoginRequest
+        body: SignInRequest
+    ): Single<LoginResponse>
+
+    fun signUp(
+        body: SignUpRequest
     ): Single<LoginResponse>
 
     fun getRecommendCamp(): Single<RecommendCampResponse>
