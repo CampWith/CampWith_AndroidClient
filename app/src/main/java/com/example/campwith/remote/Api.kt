@@ -47,7 +47,7 @@ interface Api {
     @PUT("/api/reviews/modify")
     fun modifyReview(@Body body: ModifyReviewBody): Single<CommonReviewResponse>
 
-    @DELETE("//api/reviews/delete")
+    @HTTP(method = "DELETE", path = "/api/reviews/delete", hasBody = true)
     fun deleteReview(@Body body: DeleteReviewBody): Single<CommonReviewResponse>
 
     @GET("api/campingcar/list")

@@ -15,6 +15,7 @@ import com.example.campwith.presentation.campdetail.viewmodel.CampReviewViewMode
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.core.content.ContextCompat
 import com.example.campwith.data.camp.response.CampResponseItem
+import com.example.campwith.data.review.request.DeleteReviewBody
 import com.example.campwith.presentation.reviewwrite.view.ReviewWriteActivity
 
 private const val ARG_PARAM = "campItem"
@@ -47,7 +48,7 @@ class CampReviewFragment :
             currentActivity.startActivity(intent)
         }
 
-        campReviewAdapter.onModifyClick = { review, position ->
+        campReviewAdapter.onModifyClick = { review ->
             val intent = Intent(currentActivity, ReviewWriteActivity::class.java)
             intent.putExtras(
                 bundleOf(
@@ -60,15 +61,15 @@ class CampReviewFragment :
             currentActivity.startActivity(intent)
         }
 
-        campReviewAdapter.onDeleteClick = { position ->
+        campReviewAdapter.onDeleteClick = { review ->
             val builder: AlertDialog.Builder = AlertDialog.Builder(
                 currentActivity,
                 android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth
             )
             val dialog: AlertDialog = builder.setMessage("리뷰를 삭제할까요?")
-                .setNegativeButton("취소") { textId, listener -> }
-                .setPositiveButton("확인") { textId, listener ->
-                    //deleteReview(position)
+                .setNegativeButton("취소") { _, _ -> }
+                .setPositiveButton("확인") { _, _ ->
+                    viewModel.deleteReview(DeleteReviewBody(review._id))
                 }.create()
             dialog.show()
             dialog.getButton(AlertDialog.BUTTON_POSITIVE)
@@ -78,6 +79,14 @@ class CampReviewFragment :
         }
 
         binding.rvCampReviewList.adapter = campReviewAdapter
+
+        viewModel.event.observe(viewLifecycleOwner, {
+            it.getContentIfNotHandled()?.let { event ->
+                if (event) {
+                    currentActivity.getCampDetail()
+                }
+            }
+        })
     }
 
     fun getData() {
@@ -89,10 +98,6 @@ class CampReviewFragment :
     fun addReviews(reviews: List<ReviewResponseItem>) {
         campReviewAdapter.submitList(reviews)
     }
-
-//    private fun deleteReview(position: Int) {
-//        campReviewAdapter.deleteOne(position)
-//    }
 
     companion object {
         const val TYPE = "TYPE"

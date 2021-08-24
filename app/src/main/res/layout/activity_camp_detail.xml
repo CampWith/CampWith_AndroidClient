@@ -4,6 +4,10 @@
     <data>
 
         <variable
+            name="vm"
+            type="com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel" />
+
+        <variable
             name="ItemCamp"
             type="com.example.campwith.data.camp.response.CampResponseItem" />
     </data>

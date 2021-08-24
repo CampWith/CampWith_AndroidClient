@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import com.example.campwith.R
 import com.example.campwith.data.review.request.AddReviewBody
+import com.example.campwith.data.review.request.ModifyReviewBody
 import com.example.campwith.data.review.response.ReviewResponseItem
 import com.example.campwith.databinding.ActivityReviewWriteBinding
 import com.example.campwith.presentation.base.BaseActivity
@@ -65,6 +66,7 @@ class ReviewWriteActivity :
 
             when (type) {
                 ADD -> viewModel.addReview(AddReviewBody(campId!!, comment, rating))
+                MODIFY -> viewModel.modifyReview(ModifyReviewBody(review!!._id, comment, rating))
             }
         }
 

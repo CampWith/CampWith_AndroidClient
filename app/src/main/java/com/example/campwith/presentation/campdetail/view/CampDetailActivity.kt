@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
-import com.example.campwith.data.camp.response.CampDetailResponse
 import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.databinding.ActivityCampDetailBinding
 import com.example.campwith.presentation.base.BaseActivity
@@ -25,9 +24,7 @@ class CampDetailActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         id = intent.getStringExtra("id").toString()
-
         viewModel.campDetailLiveData.observe(
             this,
             {
@@ -99,6 +96,10 @@ class CampDetailActivity :
 
     override fun onResume() {
         super.onResume()
+        getCampDetail()
+    }
+
+    fun getCampDetail() {
         viewModel.getCampDetail(id)
     }
 }

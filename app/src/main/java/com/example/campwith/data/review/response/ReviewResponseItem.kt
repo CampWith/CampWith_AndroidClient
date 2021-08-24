@@ -7,6 +7,7 @@ import android.os.Parcelable
 @SuppressLint("ParcelCreator")
 @Parcelize
 data class ReviewResponseItem(
+    val _id: String,
     val comment: String,
     val rating: Float,
     val time: String,
