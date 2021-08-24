@@ -3,32 +3,19 @@ package com.example.campwith.presentation.campdetail.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campwith.R
 import com.example.campwith.data.review.response.ReviewResponseItem
 import com.example.campwith.databinding.ItemCampReviewBinding
 
-class CampReviewAdapter : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
+class CampReviewAdapter :
+    ListAdapter<ReviewResponseItem, CampReviewAdapter.Holder>(CampReviewDiffCallback()) {
 
     private var reviewList = mutableListOf<ReviewResponseItem>()
     var onModifyClick: ((ReviewResponseItem, Int) -> Unit)? = null
     var onDeleteClick: ((Int) -> Unit)? = null
-
-    fun addAll(newReviewList: List<ReviewResponseItem>) {
-        reviewList.clear()
-        reviewList.addAll(newReviewList)
-        notifyDataSetChanged()
-    }
-
-    fun addOne(review: ReviewResponseItem) {
-        reviewList.add(0, review)
-        notifyItemInserted(0)
-    }
-
-    fun modifyOne(review: ReviewResponseItem, position: Int) {
-        reviewList[position] = review
-        notifyItemChanged(position)
-    }
 
     fun deleteOne(position: Int) {
         reviewList.removeAt(position)
@@ -57,9 +44,20 @@ class CampReviewAdapter : RecyclerView.Adapter<CampReviewAdapter.Holder>() {
         )
     )
 
-    override fun getItemCount() = reviewList.size
-
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(reviewList[position])
+        holder.bind(getItem(position))
+    }
+
+    class CampReviewDiffCallback :
+        DiffUtil.ItemCallback<ReviewResponseItem>() {
+        override fun areItemsTheSame(
+            oldItem: ReviewResponseItem,
+            newItem: ReviewResponseItem
+        ) = oldItem == newItem
+
+        override fun areContentsTheSame(
+            oldItem: ReviewResponseItem,
+            newItem: ReviewResponseItem
+        ) = oldItem == newItem
     }
 }
