@@ -1,6 +1,8 @@
 package com.example.campwith.presentation.campcar.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -28,6 +30,9 @@ class CampCarListAdapter(val context: Context) : RecyclerView.Adapter<CampCarLis
             Glide.with(itemView)
                 .load(campCarItem.image)
                 .into(binding.ivCampCarItem)
+            binding.cvCampCarItem.setOnClickListener {
+                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(campCarItem.url)))
+            }
         }
     }
 
