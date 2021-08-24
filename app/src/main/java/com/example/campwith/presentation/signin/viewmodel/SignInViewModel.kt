@@ -22,9 +22,10 @@ class SignInViewModel : BaseViewModel() {
                 .applySchedulers()
                 .subscribe(
                     {
-                        Log.d("로그인 성공", it.token)
                         _event.value = Event(true)
-                        User.token = it.token
+                        User.token = it.result.token
+                        User.uid = it.result.uid
+                        Log.d("로그인", User.uid)
                     }, {
                         _event.value = Event(false)
                     }

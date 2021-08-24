@@ -22,9 +22,7 @@ class SignUpViewModel : BaseViewModel() {
                 .applySchedulers()
                 .subscribe(
                     {
-                        Log.d("회원가입 성공", it.token)
                         _event.value = Event(true)
-                        User.token = it.token
                     }, {
                         _event.value = Event(false)
                     }
