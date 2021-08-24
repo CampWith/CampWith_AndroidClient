@@ -28,7 +28,6 @@ class CampDetailActivity :
 
         id = intent.getStringExtra("id").toString()
 
-        viewModel.getCampDetail(id)
         viewModel.campDetailLiveData.observe(
             this,
             {
@@ -96,5 +95,10 @@ class CampDetailActivity :
                 ).commit()
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getCampDetail(id)
     }
 }

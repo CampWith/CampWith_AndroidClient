@@ -12,6 +12,7 @@ import com.example.campwith.presentation.signin.viewmodel.SignInViewModel
 import com.example.campwith.presentation.main.viewmodel.CityDialogViewModel
 import com.example.campwith.presentation.main.viewmodel.MainViewModel
 import com.example.campwith.presentation.mypage.viewmodel.MyPageViewModel
+import com.example.campwith.presentation.reviewwrite.viewmodel.ReviewWriteViewModel
 import com.example.campwith.presentation.signup.viewmodel.SignUpViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -43,6 +44,9 @@ val viewModelPart = module {
     }
     viewModel {
         CampMapViewModel()
+    }
+    viewModel {
+        ReviewWriteViewModel()
     }
     viewModel {
         CampCarListViewModel()

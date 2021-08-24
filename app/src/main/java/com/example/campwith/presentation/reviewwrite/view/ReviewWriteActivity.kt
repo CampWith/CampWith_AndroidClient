@@ -1,29 +1,27 @@
 package com.example.campwith.presentation.reviewwrite.view
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
-import androidx.core.os.bundleOf
 import com.example.campwith.R
+import com.example.campwith.data.review.request.AddReviewBody
 import com.example.campwith.data.review.response.ReviewResponseItem
 import com.example.campwith.databinding.ActivityReviewWriteBinding
 import com.example.campwith.presentation.base.BaseActivity
+import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.ADD
 import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.CAMP_ID
 import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.CAMP_NM
 import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.MODIFY
-import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.POSITION
 import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.REVIEW
 import com.example.campwith.presentation.campdetail.view.CampReviewFragment.Companion.TYPE
-import com.example.campwith.presentation.reviewwrite.viewmodel.CampReviewWriteViewModel
+import com.example.campwith.presentation.reviewwrite.viewmodel.ReviewWriteViewModel
 import kotlinx.android.synthetic.main.activity_review_write.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ReviewWriteActivity :
-    BaseActivity<ActivityReviewWriteBinding, CampReviewWriteViewModel>(R.layout.activity_review_write) {
-    override val viewModel: CampReviewWriteViewModel by viewModel()
+    BaseActivity<ActivityReviewWriteBinding, ReviewWriteViewModel>(R.layout.activity_review_write) {
+    override val viewModel: ReviewWriteViewModel by viewModel()
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +31,6 @@ class ReviewWriteActivity :
         val campId = intent.getStringExtra(CAMP_ID)
         val campNm = intent.getStringExtra(CAMP_NM)
         val review: ReviewResponseItem? = intent.getParcelableExtra(REVIEW)
-        val position: Int = intent.getIntExtra(POSITION, -1)
 
         when (type) {
             MODIFY -> {
@@ -63,25 +60,21 @@ class ReviewWriteActivity :
         }
 
         binding.tvReviewRegister.setOnClickListener {
-            val result = Intent().apply {
-                putExtras(
-                    bundleOf(
-                        TYPE to type,
-                        REVIEW to
-                                ReviewResponseItem(
-                                    binding.editTextReview.text.toString(),
-                                    binding.ratingBarReviewWrite.rating,
-                                    "2099.99.99",
-                                    "테스트",
-                                    "1"
-                                ),
-                        POSITION to position
-                    )
-                )
+            val comment = binding.editTextReview.text.toString()
+            val rating = binding.ratingBarReviewWrite.rating
+
+            when (type) {
+                ADD -> viewModel.addReview(AddReviewBody(campId!!, comment, rating))
             }
-            setResult(Activity.RESULT_OK, result)
-            finish()
         }
+
+        viewModel.event.observe(this, {
+            it.getContentIfNotHandled()?.let { event ->
+                if (event) {
+                    finish()
+                }
+            }
+        })
     }
 
     private fun hideKeyboard() {

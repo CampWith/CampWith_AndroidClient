@@ -5,14 +5,16 @@ import com.example.campwith.data.camp.response.CampDetailResponse
 import com.example.campwith.data.campcar.CampCarResponse
 import com.example.campwith.data.camp.response.CampResponse
 import com.example.campwith.data.camptool.response.CampToolResponse
+import com.example.campwith.data.review.request.AddReviewBody
+import com.example.campwith.data.review.request.DeleteReviewBody
+import com.example.campwith.data.review.request.ModifyReviewBody
+import com.example.campwith.data.review.response.AddReviewResponse
+import com.example.campwith.data.review.response.CommonReviewResponse
 import com.example.campwith.data.signin.request.SignInRequest
 import com.example.campwith.data.signin.response.LoginResponse
 import com.example.campwith.data.signup.request.SignUpRequest
 import io.reactivex.Single
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface Api {
     @POST("/api/users/signIn")
@@ -38,6 +40,15 @@ interface Api {
     fun getCampDetail(
         @Path("id") id: String
     ): Single<CampDetailResponse>
+
+    @POST("/api/reviews/add")
+    fun addReview(@Body body: AddReviewBody): Single<AddReviewResponse>
+
+    @PUT("/api/reviews/modify")
+    fun modifyReview(@Body body: ModifyReviewBody): Single<CommonReviewResponse>
+
+    @DELETE("//api/reviews/delete")
+    fun deleteReview(@Body body: DeleteReviewBody): Single<CommonReviewResponse>
 
     @GET("api/campingcar/list")
     fun getCampCar(): Single<CampCarResponse>
