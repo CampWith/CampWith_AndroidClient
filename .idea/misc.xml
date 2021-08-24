@@ -15,10 +15,12 @@
         <entry key="app/src/main/res/layout/activity_camp_detail.xml" value="0.1068264721208963" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.27851353520932404" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10520833333333333" />
+        <entry key="app/src/main/res/layout/activity_review_write.xml" value="0.11639492753623189" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.2604766845703125" />
         <entry key="app/src/main/res/layout/fragment_camp.xml" value="0.2721585591634115" />
         <entry key="app/src/main/res/layout/fragment_camp_map.xml" value="0.10885416666666667" />
         <entry key="app/src/main/res/layout/item_banner.xml" value="0.10520833333333333" />
+        <entry key="app/src/main/res/layout/item_camp.xml" value="0.11639492753623189" />
         <entry key="app/src/main/res/layout/item_camp_review.xml" value="0.10885416666666667" />
       </map>
     </option>

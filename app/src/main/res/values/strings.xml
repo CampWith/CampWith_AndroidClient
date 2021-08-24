@@ -2,5 +2,5 @@
     <string name="app_name">CampWith</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="kakao_app_key">c1a3db246ab009083eacf4c0f262a4b1</string>
+    <string name="float_fomat">%.1f</string>
 </resources>
