@@ -2,5 +2,6 @@
     <string name="app_name">CampWith</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="float_fomat">%.1f</string>
+    <string name="float_format">%.1f</string>
+    <string name="date_format">%.10s</string>
 </resources>
