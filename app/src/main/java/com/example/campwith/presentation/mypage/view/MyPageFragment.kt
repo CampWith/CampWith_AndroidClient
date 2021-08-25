@@ -3,10 +3,13 @@ package com.example.campwith.presentation.mypage.view
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import com.example.campwith.CampTypeConstant
 import com.example.campwith.R
 import com.example.campwith.databinding.FragmentMypageBinding
 import com.example.campwith.presentation.base.BaseFragment
+import com.example.campwith.presentation.camp.view.CampListFragment
 import com.example.campwith.presentation.main.view.MainActivity
+import com.example.campwith.presentation.main.view.MainActivity.Companion.BOOKMARK_CAMP
 import com.example.campwith.presentation.mypage.viewmodel.MyPageViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -30,6 +33,10 @@ class MyPageFragment :
                 setLogoVisible(false)
                 setTitle("마이페이지")
             }
+        }
+
+        binding.btnBookmark.setOnClickListener {
+            currentActivity.replaceFragmentType(BOOKMARK_CAMP, "")
         }
     }
 

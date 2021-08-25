@@ -1,6 +1,7 @@
 package com.example.campwith.remote
 
 import com.example.campwith.data.bookmark.request.BookmarkRequest
+import com.example.campwith.data.bookmark.response.BookmarkCampResponse
 import com.example.campwith.data.bookmark.response.BookmarkResponse
 import com.example.campwith.data.campcar.CampCarResponse
 import com.example.campwith.data.camptool.response.CampToolResponse
@@ -35,6 +36,8 @@ class RemoteDataSourceImpl : RemoteDataSource {
     override fun getCampDetail(
         id: String
     ) = api.getCampDetail(id)
+
+    override fun getBookmarkCamp() = api.getBookmarkCamp()
 
     override fun addBookmark(body: BookmarkRequest) = api.addBookmark(body)
 

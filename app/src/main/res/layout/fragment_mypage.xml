@@ -13,12 +13,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_logout"
+            android:id="@+id/btn_bookmark"
             style="@style/medium_basic_18sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:text="로그아웃"
+            android:text="즐겨찾기"
             app:layout_constraintTop_toBottomOf="@id/toolbar_fragment_mypage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

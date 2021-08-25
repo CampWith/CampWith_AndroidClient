@@ -1,6 +1,7 @@
 package com.example.campwith.remote
 
 import com.example.campwith.data.bookmark.request.BookmarkRequest
+import com.example.campwith.data.bookmark.response.BookmarkCampResponse
 import com.example.campwith.data.bookmark.response.BookmarkResponse
 import com.example.campwith.data.camp.response.RecommendCampResponse
 import com.example.campwith.data.camp.response.CampDetailResponse
@@ -19,27 +20,19 @@ import com.example.campwith.data.signup.request.SignUpRequest
 import io.reactivex.Single
 
 interface RemoteDataSource {
-    fun signIn(
-        body: SignInRequest
-    ): Single<LoginResponse>
+    fun signIn(body: SignInRequest): Single<LoginResponse>
 
-    fun signUp(
-        body: SignUpRequest
-    ): Single<LoginResponse>
+    fun signUp(body: SignUpRequest): Single<LoginResponse>
 
     fun getRecommendCamp(): Single<RecommendCampResponse>
 
-    fun getCamp(
-        doNm: String
-    ): Single<CampResponse>
+    fun getCamp(doNm: String): Single<CampResponse>
 
-    fun getTypeCamp(
-        type: Int
-    ): Single<CampResponse>
+    fun getTypeCamp(type: Int): Single<CampResponse>
 
-    fun getCampDetail(
-        id: String
-    ): Single<CampDetailResponse>
+    fun getCampDetail(id: String): Single<CampDetailResponse>
+
+    fun getBookmarkCamp(): Single<BookmarkCampResponse>
 
     fun addBookmark(body: BookmarkRequest): Single<CommonResponse>
 

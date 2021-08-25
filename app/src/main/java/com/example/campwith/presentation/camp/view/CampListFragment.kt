@@ -10,6 +10,8 @@ import com.example.campwith.presentation.base.BaseFragment
 import com.example.campwith.presentation.camp.adapter.CampListAdapter
 import com.example.campwith.presentation.camp.viewmodel.CampListViewModel
 import com.example.campwith.presentation.main.view.MainActivity
+import com.example.campwith.presentation.main.view.MainActivity.Companion.HOME
+import com.example.campwith.presentation.main.view.MainActivity.Companion.MY_PAGE
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CampListFragment :
@@ -44,10 +46,7 @@ class CampListFragment :
                     setLogoVisible(false)
                     setTitle(region!!)
                     setBackBtnClick {
-                        currentActivity.replaceFragment(
-                            null,
-                            null
-                        )
+                        currentActivity.replaceFragmentType(HOME, "")
                     }
                 }
             }
@@ -59,12 +58,22 @@ class CampListFragment :
                     setCancleBtnVisible(false)
                     setLogoVisible(false)
                     setTitle(getTypeName(type!!))
-                    setBackBtnClick(View.OnClickListener {
-                        currentActivity.replaceFragment(
-                            null,
-                            null
-                        )
-                    })
+                    setBackBtnClick {
+                        currentActivity.replaceFragmentType(HOME, "")
+                    }
+                }
+            }
+        } else {
+            viewModel.getBookmarkCampList()
+            currentActivity.runOnUiThread {
+                binding.toolbarActivityCampList.run {
+                    setBackBtnVisible(true)
+                    setCancleBtnVisible(false)
+                    setLogoVisible(false)
+                    setTitle("즐겨찾기")
+                    setBackBtnClick {
+                        currentActivity.replaceFragmentType(MY_PAGE, "")
+                    }
                 }
             }
         }
@@ -74,7 +83,7 @@ class CampListFragment :
 
         viewModel.campListLiveData.observe(viewLifecycleOwner,
             {
-                campListAdapter.addAll(it.result.campsiteList)
+                campListAdapter.addAll(it)
             })
     }
 

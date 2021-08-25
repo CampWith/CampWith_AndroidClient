@@ -1,6 +1,7 @@
 package com.example.campwith.remote
 
 import com.example.campwith.data.bookmark.request.BookmarkRequest
+import com.example.campwith.data.bookmark.response.BookmarkCampResponse
 import com.example.campwith.data.bookmark.response.BookmarkResponse
 import com.example.campwith.data.camp.response.RecommendCampResponse
 import com.example.campwith.data.camp.response.CampDetailResponse
@@ -43,6 +44,9 @@ interface Api {
     fun getCampDetail(
         @Path("id") id: String
     ): Single<CampDetailResponse>
+
+    @GET("/api/users/favorites")
+    fun getBookmarkCamp(): Single<BookmarkCampResponse>
 
     @POST("/api/users/favorites")
     fun addBookmark(@Body body: BookmarkRequest): Single<CommonResponse>
