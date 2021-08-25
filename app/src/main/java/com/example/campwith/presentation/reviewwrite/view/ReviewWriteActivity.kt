@@ -42,7 +42,7 @@ class ReviewWriteActivity :
 
         binding.tvNm.text = campNm
 
-        container_review.setOnTouchListener { view, motionEvent ->
+        binding.containerReview.setOnTouchListener { _, _ ->
             if (binding.editTextReview.isFocused) {
                 hideKeyboard()
                 false
