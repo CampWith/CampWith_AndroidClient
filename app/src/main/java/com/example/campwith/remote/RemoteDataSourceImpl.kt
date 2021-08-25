@@ -1,7 +1,10 @@
 package com.example.campwith.remote
 
+import com.example.campwith.data.bookmark.request.BookmarkRequest
+import com.example.campwith.data.bookmark.response.BookmarkResponse
 import com.example.campwith.data.campcar.CampCarResponse
 import com.example.campwith.data.camptool.response.CampToolResponse
+import com.example.campwith.data.common.response.CommonResponse
 import com.example.campwith.data.review.request.AddReviewBody
 import com.example.campwith.data.review.request.DeleteReviewBody
 import com.example.campwith.data.review.request.ModifyReviewBody
@@ -32,6 +35,11 @@ class RemoteDataSourceImpl : RemoteDataSource {
     override fun getCampDetail(
         id: String
     ) = api.getCampDetail(id)
+
+    override fun addBookmark(body: BookmarkRequest) = api.addBookmark(body)
+
+    override fun deleteBookmark(body: BookmarkRequest): Single<BookmarkResponse> =
+        api.deleteBookmark(body)
 
     override fun addReview(body: AddReviewBody) = api.addReview(body)
 

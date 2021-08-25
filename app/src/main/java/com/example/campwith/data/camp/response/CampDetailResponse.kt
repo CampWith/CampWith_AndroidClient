@@ -8,6 +8,7 @@ data class CampDetailResponse(
     val result: Result,
 ) {
     data class Result(
+        val is_favorite: Boolean,
         val campsite: CampResponseItem,
         val reviews: List<ReviewResponseItem>
     )

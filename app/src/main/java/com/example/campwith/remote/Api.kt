@@ -1,10 +1,13 @@
 package com.example.campwith.remote
 
+import com.example.campwith.data.bookmark.request.BookmarkRequest
+import com.example.campwith.data.bookmark.response.BookmarkResponse
 import com.example.campwith.data.camp.response.RecommendCampResponse
 import com.example.campwith.data.camp.response.CampDetailResponse
 import com.example.campwith.data.campcar.CampCarResponse
 import com.example.campwith.data.camp.response.CampResponse
 import com.example.campwith.data.camptool.response.CampToolResponse
+import com.example.campwith.data.common.response.CommonResponse
 import com.example.campwith.data.review.request.AddReviewBody
 import com.example.campwith.data.review.request.DeleteReviewBody
 import com.example.campwith.data.review.request.ModifyReviewBody
@@ -40,6 +43,12 @@ interface Api {
     fun getCampDetail(
         @Path("id") id: String
     ): Single<CampDetailResponse>
+
+    @POST("/api/users/favorites")
+    fun addBookmark(@Body body: BookmarkRequest): Single<CommonResponse>
+
+    @PUT("/api/users/favorites")
+    fun deleteBookmark(@Body body: BookmarkRequest): Single<BookmarkResponse>
 
     @POST("/api/reviews/add")
     fun addReview(@Body body: AddReviewBody): Single<AddReviewResponse>

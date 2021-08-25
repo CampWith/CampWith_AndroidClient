@@ -7,10 +7,14 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.campwith.CampTypeConstant.getTypeName
 import com.example.campwith.R
+import com.example.campwith.data.bookmark.request.BookmarkRequest
 import com.example.campwith.data.camp.response.CampResponseItem
 import com.example.campwith.databinding.ActivityCampDetailBinding
 import com.example.campwith.presentation.base.BaseActivity
 import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel
+import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel.Companion.ADD_BOOKMARK
+import com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel.Companion.DELETE_BOOKMARK
+import com.example.campwith.presentation.binding.setBookmarkImage
 import com.google.android.material.tabs.TabLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -19,6 +23,7 @@ class CampDetailActivity :
     override val viewModel: CampDetailViewModel by viewModel()
     lateinit var id: String
     lateinit var campItem: CampResponseItem
+    var isBookmark: Boolean = false
     val campReviewFragment = CampReviewFragment()
     val campMapFragment = CampMapFragment()
 
@@ -29,6 +34,8 @@ class CampDetailActivity :
             this,
             {
                 campItem = it.result.campsite
+                isBookmark = it.result.is_favorite
+                setBookmarkImage(binding.ivBookmark, isBookmark)
                 binding.itemCamp = campItem
                 binding.tvCampType.text = getTypeName(campItem.category)
                 Glide.with(this)
@@ -44,21 +51,21 @@ class CampDetailActivity :
         )
 
         binding.ivBookmark.setOnClickListener {
-            binding.ivBookmark.setImageResource(R.drawable.ic_heart_2)
-            binding.lottieBookmark.run {
-                bringToFront()
-                playAnimation()
-                addAnimatorListener(object : Animator.AnimatorListener {
-                    override fun onAnimationStart(animation: Animator?) {}
-                    override fun onAnimationEnd(animation: Animator?) {
-                        visibility = View.GONE
-                    }
-
-                    override fun onAnimationCancel(animation: Animator?) {}
-                    override fun onAnimationRepeat(animation: Animator?) {}
-                })
+            if (isBookmark) {
+                viewModel.deleteBookmark(BookmarkRequest(campItem._id))
+            } else {
+                viewModel.addBookmark(BookmarkRequest(campItem._id))
             }
         }
+
+        viewModel.event.observe(this, {
+            it.getContentIfNotHandled()?.let { evnet ->
+                when (evnet) {
+                    ADD_BOOKMARK -> addBookmarkImg()
+                    DELETE_BOOKMARK -> deleteBookmarkImg()
+                }
+            }
+        })
 
         this.runOnUiThread {
             binding.toolbarActivityCampDetail.run {
@@ -92,6 +99,30 @@ class CampDetailActivity :
                 ).commit()
             }
         })
+    }
+
+    private fun addBookmarkImg() {
+        isBookmark = true
+        setBookmarkImage(binding.ivBookmark, isBookmark)
+        binding.lottieBookmark.run {
+            visibility = View.VISIBLE
+            bringToFront()
+            playAnimation()
+            addAnimatorListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animation: Animator?) {}
+                override fun onAnimationEnd(animation: Animator?) {
+                    visibility = View.INVISIBLE
+                }
+
+                override fun onAnimationCancel(animation: Animator?) {}
+                override fun onAnimationRepeat(animation: Animator?) {}
+            })
+        }
+    }
+
+    private fun deleteBookmarkImg() {
+        isBookmark = false
+        setBookmarkImage(binding.ivBookmark, isBookmark)
     }
 
     override fun onResume() {

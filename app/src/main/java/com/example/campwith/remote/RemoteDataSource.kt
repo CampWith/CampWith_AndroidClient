@@ -1,10 +1,13 @@
 package com.example.campwith.remote
 
+import com.example.campwith.data.bookmark.request.BookmarkRequest
+import com.example.campwith.data.bookmark.response.BookmarkResponse
 import com.example.campwith.data.camp.response.RecommendCampResponse
 import com.example.campwith.data.camp.response.CampDetailResponse
 import com.example.campwith.data.campcar.CampCarResponse
 import com.example.campwith.data.camp.response.CampResponse
 import com.example.campwith.data.camptool.response.CampToolResponse
+import com.example.campwith.data.common.response.CommonResponse
 import com.example.campwith.data.review.request.AddReviewBody
 import com.example.campwith.data.review.request.DeleteReviewBody
 import com.example.campwith.data.review.request.ModifyReviewBody
@@ -37,6 +40,10 @@ interface RemoteDataSource {
     fun getCampDetail(
         id: String
     ): Single<CampDetailResponse>
+
+    fun addBookmark(body: BookmarkRequest): Single<CommonResponse>
+
+    fun deleteBookmark(body: BookmarkRequest): Single<BookmarkResponse>
 
     fun addReview(body: AddReviewBody): Single<AddReviewResponse>
 
