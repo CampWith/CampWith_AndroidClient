@@ -1,8 +1,11 @@
 package com.example.campwith.presentation.campdetail.view
 
 import android.animation.Animator
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.campwith.CampTypeConstant.getTypeName
@@ -49,6 +52,18 @@ class CampDetailActivity :
                 campReviewFragment.getData()
             }
         )
+
+        binding.containerCall.setOnClickListener {
+            if (campItem.tel.isNotEmpty()) {
+                startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + campItem.tel)))
+            } else {
+                Toast.makeText(this, "전화번호 준비중입니다.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.containerHome.setOnClickListener {
+            Toast.makeText(this, "홈페이지 준비중입니다.", Toast.LENGTH_SHORT).show()
+        }
 
         binding.ivBookmark.setOnClickListener {
             if (isBookmark) {
