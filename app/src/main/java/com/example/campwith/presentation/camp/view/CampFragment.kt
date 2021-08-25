@@ -23,6 +23,7 @@ import com.example.campwith.presentation.camp.viewmodel.CampViewModel
 import com.example.campwith.presentation.camptool.view.CampToolActivity
 import com.example.campwith.presentation.main.view.CityDialogFragment
 import com.example.campwith.presentation.main.view.MainActivity
+import com.example.campwith.presentation.main.view.MainActivity.Companion.TYPE_CAMP
 import kotlinx.android.synthetic.main.fragment_camp.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -71,38 +72,26 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
             cityDialogFragment.setStyle(
                 DialogFragment.STYLE_NO_TITLE,
                 android.R.style.Theme_Holo_Light
-            );
-            currentActivity.let { it1 ->
+            )
+            currentActivity.let { activity ->
                 cityDialogFragment.show(
-                    it1.supportFragmentManager,
+                    activity.supportFragmentManager,
                     "dialog"
                 )
             }
         }
 
         binding.containerAuto.setOnClickListener {
-            currentActivity.replaceFragment(
-                null,
-                AUTO_TYPE
-            )
+            currentActivity.replaceFragmentType(TYPE_CAMP, AUTO_TYPE)
         }
         binding.containerNormal.setOnClickListener {
-            currentActivity.replaceFragment(
-                null,
-                NORMAL_TYPE
-            )
+            currentActivity.replaceFragmentType(TYPE_CAMP, NORMAL_TYPE)
         }
         binding.containerGlamping.setOnClickListener {
-            currentActivity.replaceFragment(
-                null,
-                GLAMPING_TYPE
-            )
+            currentActivity.replaceFragmentType(TYPE_CAMP, GLAMPING_TYPE)
         }
         binding.containerCaraven.setOnClickListener {
-            currentActivity.replaceFragment(
-                null,
-                CARAVEN_TYPE
-            )
+            currentActivity.replaceFragmentType(TYPE_CAMP, CARAVEN_TYPE)
         }
 
         initViewPager2()
@@ -111,7 +100,7 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
     }
 
     private fun initViewPager2() {
-        vp_banner.apply {
+        binding.vpBanner.apply {
             viewPagerAdapter = ViewPagerAdapter(this@CampFragment)
             adapter = viewPagerAdapter
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -129,11 +118,11 @@ class CampFragment : BaseFragment<FragmentCampBinding, CampViewModel>(R.layout.f
     }
 
     private fun subscribeObservers() {
-        viewModel.bannerItemList.observe(viewLifecycleOwner, Observer { bannerItemList ->
+        viewModel.bannerItemList.observe(viewLifecycleOwner, { bannerItemList ->
             viewPagerAdapter.submitList(bannerItemList)
         })
-        viewModel.currentPosition.observe(viewLifecycleOwner, Observer { currentPosition ->
-            vp_banner.currentItem = currentPosition
+        viewModel.currentPosition.observe(viewLifecycleOwner, { currentPosition ->
+            binding.vpBanner.currentItem = currentPosition
         })
     }
 

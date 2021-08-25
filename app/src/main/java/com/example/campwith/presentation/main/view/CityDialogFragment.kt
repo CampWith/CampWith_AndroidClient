@@ -7,6 +7,7 @@ import android.widget.Button
 import com.example.campwith.R
 import com.example.campwith.databinding.FragmentCityDialogBinding
 import com.example.campwith.presentation.base.BaseDialogFragment
+import com.example.campwith.presentation.main.view.MainActivity.Companion.REGION_CAMP
 import com.example.campwith.presentation.main.viewmodel.CityDialogViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -29,7 +30,7 @@ class CityDialogFragment :
                 setCancleBtnVisible(true)
                 setLogoVisible(false)
                 setCenterTitle("지역을 선택해 주세요")
-                setCancleBtnClick(View.OnClickListener { dismiss() })
+                setCancleBtnClick { dismiss() }
             }
         }
 
@@ -38,7 +39,7 @@ class CityDialogFragment :
             val resId = resources.getIdentifier(resName + i, "id", activity?.packageName)
             val btn = view.findViewById<Button>(resId)
             btn.setOnClickListener {
-                currentActivity.replaceFragment(btn.text.toString(), null)
+                currentActivity.replaceFragmentType(REGION_CAMP, btn.text.toString())
                 dismiss()
             }
         }

@@ -19,9 +19,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        bottom_navigation_main.setOnNavigationItemSelectedListener {
+        binding.bottomNavigationMain.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.main_camp -> bottomNavigationReplaceFragment(CampFragment())
                 R.id.main_camp_car -> bottomNavigationReplaceFragment(CampCarListFragment())
@@ -30,7 +29,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
                 else -> false
             }
         }
-        bottom_navigation_main.selectedItemId = R.id.main_camp
+        binding.bottomNavigationMain.selectedItemId = R.id.main_camp
     }
 
     private fun bottomNavigationReplaceFragment(fragment: Fragment): Boolean {
@@ -38,17 +37,25 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
         return true
     }
 
-    fun replaceFragment(region: String?, type: Int?) {
-        if (region != null) {
-            supportFragmentManager.beginTransaction()
-                .replace(binding.frame.id, CampListFragment.newInstance(region)).commit()
-        } else if (type != null) {
-            supportFragmentManager.beginTransaction()
-                .replace(binding.frame.id, CampListFragment.newInstance(type)).commit()
-        } else {
-            supportFragmentManager.beginTransaction().replace(binding.frame.id, CampFragment())
-                .commit()
-        }
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(binding.frame.id, fragment).commit()
+    }
 
+    fun replaceFragmentType(type: String, param: Any) {
+        when (type) {
+            REGION_CAMP -> replaceFragment(CampListFragment.newInstance(param as String))
+            TYPE_CAMP -> replaceFragment(CampListFragment.newInstance(param as Int))
+            BOOKMARK_CAMP -> replaceFragment(CampListFragment())
+            HOME -> replaceFragment(CampFragment())
+            MY_PAGE -> replaceFragment(MyPageFragment())
+        }
+    }
+
+    companion object {
+        const val REGION_CAMP = "REGION"
+        const val TYPE_CAMP = "TYPE"
+        const val BOOKMARK_CAMP = "BOOKMARK_CAMP"
+        const val HOME = "HOME"
+        const val MY_PAGE = "MY_PAGE"
     }
 }
