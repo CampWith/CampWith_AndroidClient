@@ -3,11 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="vm"
             type="com.example.campwith.presentation.signup.viewmodel.SignUpViewModel" />
-
         <variable
             name="signUpBody"
             type="com.example.campwith.data.signup.request.SignUpRequest" />
@@ -58,7 +56,8 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/background_region_btn"
             android:onClick="@{() -> vm.signUp(signUpBody)}"
-            android:text="Sing Up" />
+            android:text="Sing Up"
+            android:textColor="@drawable/color_region_btn_text" />
 
     </LinearLayout>
 </layout>

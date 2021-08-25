@@ -7,7 +7,6 @@
         <variable
             name="vm"
             type="com.example.campwith.presentation.signin.viewmodel.SignInViewModel" />
-
         <variable
             name="signInBody"
             type="com.example.campwith.data.signin.request.SignInRequest" />
@@ -59,17 +58,18 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/background_region_btn"
             android:onClick="@{() -> vm.signIn(signInBody)}"
-            android:text="Sign In" />
+            android:text="Sign In"
+            android:textColor="@drawable/color_region_btn_text" />
 
         <TextView
             android:id="@+id/tv_sign_up"
+            style="@style/medium_basic_12sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/medium_basic_12sp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:textColor="@color/gray"
-            android:text="회원가입 하러가기" />
+            android:text="회원가입 하러가기"
+            android:textColor="@color/gray" />
 
     </LinearLayout>
 </layout>
