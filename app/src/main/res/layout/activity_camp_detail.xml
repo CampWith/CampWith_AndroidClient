@@ -2,9 +2,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="vm"
             type="com.example.campwith.presentation.campdetail.viewmodel.CampDetailViewModel" />
+
         <variable
             name="ItemCamp"
             type="com.example.campwith.data.camp.response.CampResponseItem" />
@@ -37,6 +39,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/toolbar_activity_camp_detail"
             android:foregroundGravity="center"
+            android:visibility="invisible"
             app:lottie_rawRes="@raw/heart" />
 
         <androidx.core.widget.NestedScrollView
